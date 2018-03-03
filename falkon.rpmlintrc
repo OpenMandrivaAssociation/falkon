@@ -1,0 +1,2 @@
+# False positives because of private library in -core
+addFilter("E: incoherent-version-in-name")
