@@ -145,4 +145,11 @@ export KDE_INTEGRATION="true"
 %install
 %ninja_install -C build
 
-%find_lang %{name} --all-name --with-qt
+# find_lang can't deal with the strange mix of .mo and .qm style
+# translations all put in the same place, so let's do the right thing
+# manually
+TOPDIR="`pwd`"
+cd %{buildroot}
+find .%{_datadir}/locale -type f -name "*.qm" -o -name "*.mo" |while read r; do
+	printf '%%%%lang(%%s) %%s\n' `echo $r |cut -d/ -f5` `echo $r |cut -b2-` >>"$TOPDIR"/%{name}.lang
+done
