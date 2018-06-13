@@ -21,6 +21,7 @@ BuildRequires:	ninja
 BuildRequires:	qmake5
 BuildRequires:	qt5-linguist-tools
 BuildRequires:	dos2unix
+BuildRequires:	pkgconfig(openssl)
 BuildRequires:	pkgconfig(xcb-util)
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5WebEngine)
