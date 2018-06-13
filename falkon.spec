@@ -31,7 +31,7 @@ BuildRequires:	pkgconfig(Qt5Script)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	pkgconfig(Qt5X11Extras)
 BuildRequires:	cmake(KF5Wallet)
-BuildRequires:	cmake(KF5I18)
+BuildRequires:	cmake(KF5I18n)
 Requires:	%{name}-core = %{EVRD}
 Suggests:	%{name}-plugins = %{EVRD}
 Requires:	qt5-qtbase-database-plugin-sqlite
