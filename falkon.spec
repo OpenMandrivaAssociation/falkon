@@ -9,7 +9,7 @@ Version:	3.0.1
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	1
+Release:	2
 Source0:	http://download.kde.org/stable/falkon/%(echo %{version} |cut -d. -f1-2)/src/falkon-%{version}.tar.xz
 %endif
 Source100:	falkon.rpmlintrc
@@ -21,6 +21,7 @@ BuildRequires:	ninja
 BuildRequires:	qmake5
 BuildRequires:	qt5-linguist-tools
 BuildRequires:	dos2unix
+BuildRequires:	pkgconfig(gnome-keyring-1)
 BuildRequires:	pkgconfig(openssl)
 BuildRequires:	pkgconfig(xcb-util)
 BuildRequires:	pkgconfig(Qt5Core)
