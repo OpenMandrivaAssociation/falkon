@@ -9,10 +9,11 @@ Version:	3.0.1
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	3
+Release:	4
 Source0:	http://download.kde.org/stable/falkon/%(echo %{version} |cut -d. -f1-2)/src/falkon-%{version}.tar.xz
 %endif
 Source100:	falkon.rpmlintrc
+Patch0:		falkon-3.0.1-webinspector.patch
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
 Url:		https://github.com/KDE/falkon
@@ -125,11 +126,10 @@ application in almost any way. This package contains the following plugins:
 
 %prep
 %if 0%{snapshot}
-%setup -q -n %{oname}-%{snapshot}
+%autosetup -p1 -n %{oname}-%{snapshot}
 %else
-%setup -q -n %{oname}-%{version}
+%autosetup -p1 -n %{oname}-%{version}
 %endif
-%apply_patches
 dos2unix README.md
 
 %build

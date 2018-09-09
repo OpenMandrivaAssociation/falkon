@@ -1,0 +1,19 @@
+diff -up falkon-3.0.1/src/main/main.cpp.omv~ falkon-3.0.1/src/main/main.cpp
+--- falkon-3.0.1/src/main/main.cpp.omv~	2018-09-09 21:56:19.255755103 +0200
++++ falkon-3.0.1/src/main/main.cpp	2018-09-09 21:57:51.574570723 +0200
+@@ -133,6 +133,15 @@ int main(int argc, char* argv[])
+     signal(SIGSEGV, falkon_signal_handler);
+ #endif
+ 
++    // Enable Chromium DevTools -- press Ctrl+Shift+I for Web Inspector
++    QTcpSocket *socket = new QTcpSocket();
++    if(socket->bind()) {
++	    uint16_t port = socket->localPort();
++	    qputenv("QTWEBENGINE_REMOTE_DEBUGGING", QByteArray::number(port));
++	    socket->close();
++    }
++    delete socket;
++
+     // Hack to fix QT_STYLE_OVERRIDE with QProxyStyle
+     const QByteArray style = qgetenv("QT_STYLE_OVERRIDE");
+     if (!style.isEmpty()) {
