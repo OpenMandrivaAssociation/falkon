@@ -10,7 +10,7 @@ Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
 Release:	5
-Source0:	http://download.kde.org/stable/falkon/%(echo %{version} |cut -d. -f1-2)/src/falkon-%{version}.tar.xz
+Source0:	http://download.kde.org/stable/falkon/%{version}/falkon-%{version}.tar.xz
 %endif
 Source100:	falkon.rpmlintrc
 Patch0:		falkon-3.0.1-webinspector.patch
