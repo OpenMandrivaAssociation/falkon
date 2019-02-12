@@ -9,7 +9,7 @@ Version:	3.0.1
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	5
+Release:	6
 Source0:	http://download.kde.org/stable/falkon/%{version}/falkon-%{version}.tar.xz
 %endif
 Source100:	falkon.rpmlintrc
