@@ -36,6 +36,12 @@ BuildRequires:	pkgconfig(Qt5X11Extras)
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	cmake(KF5Wallet)
 BuildRequires:	cmake(KF5I18n)
+# Optional -- having them enables KDE integration
+BuildRequires:	cmake(KF5KIO)
+BuildRequires:	cmake(KF5Crash)
+BuildRequires:	cmake(KF5CoreAddons)
+BuildRequires:	cmake(KF5Purpose)
+BuildRequires:	cmake(PySide2)
 Requires:	%{name}-core = %{EVRD}
 Suggests:	%{name}-plugins = %{EVRD}
 Requires:	qt5-qtbase-database-plugin-sqlite
