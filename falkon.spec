@@ -1,16 +1,17 @@
 %define oname falkon
 %define major 2
 %define snapshot %nil
+%global optflags %{optflags} -Wno-error=return-type-c-linkage
 
 Summary:	Fast, lightweight web browser based on QtWebEngine
 Name:		falkon
-Version:	3.0.1
+Version:	3.1.0
 %if 0%snapshot
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	6
-Source0:	http://download.kde.org/stable/falkon/%{version}/falkon-%{version}.tar.xz
+Release:	1
+Source0:	http://download.kde.org/stable/falkon/%(echo %{version} |cut -d. -f1-2)/falkon-%{version}.tar.xz
 %endif
 Source100:	falkon.rpmlintrc
 Patch0:		falkon-3.0.1-webinspector.patch
@@ -32,6 +33,7 @@ BuildRequires:	pkgconfig(Qt5QuickWidgets)
 BuildRequires:	pkgconfig(Qt5Script)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	pkgconfig(Qt5X11Extras)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	cmake(KF5Wallet)
 BuildRequires:	cmake(KF5I18n)
 Requires:	%{name}-core = %{EVRD}
@@ -101,6 +103,8 @@ available to everyone.
 %{_datadir}/metainfo/org.kde.falkon.appdata.xml
 %dir %{_libdir}/plugins
 %dir %{_libdir}/plugins/falkon
+%dir %{_libdir}/plugins/falkon/python
+%dir %{_libdir}/plugins/falkon/qml
 
 #----------------------------------------------------------------------------
 
@@ -121,6 +125,10 @@ application in almost any way. This package contains the following plugins:
 
 %files plugins
 %{_libdir}/plugins/falkon/*.so
+%{_libdir}/plugins/falkon/python/hellopython
+%{_libdir}/plugins/falkon/python/middleclickloader
+%{_libdir}/plugins/falkon/python/runaction
+%{_libdir}/plugins/falkon/qml/helloqml
 
 #----------------------------------------------------------------------------
 
