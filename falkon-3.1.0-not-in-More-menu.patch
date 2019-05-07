@@ -1,0 +1,12 @@
+diff -up falkon-3.1.0/linux/applications/org.kde.falkon.desktop.omv~ falkon-3.1.0/linux/applications/org.kde.falkon.desktop
+--- falkon-3.1.0/linux/applications/org.kde.falkon.desktop.omv~	2019-05-07 23:23:56.422728288 +0200
++++ falkon-3.1.0/linux/applications/org.kde.falkon.desktop	2019-05-07 23:24:42.345279375 +0200
+@@ -27,7 +27,7 @@ Name[zh_CN]=Falkon
+ Name[zh_TW]=Falkon
+ Type=Application
+ Icon=falkon
+-Categories=Network;WebBrowser;
++Categories=KDE;Qt;X-MandrivaLinux-CrossDesktop;Network;WebBrowser;
+ Comment=A fast and secure web browser
+ Comment[ar]=متصفّح وبّ سريع وآمن
+ Comment[ca]=Un navegador web ràpid i segur
