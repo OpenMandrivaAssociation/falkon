@@ -10,12 +10,15 @@ Version:	3.1.0
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	2
+Release:	3
 Source0:	http://download.kde.org/stable/falkon/%(echo %{version} |cut -d. -f1-2)/falkon-%{version}.tar.xz
 %endif
 Source100:	falkon.rpmlintrc
 Patch0:		falkon-3.0.1-webinspector.patch
 Patch1:		falkon-3.1.0-not-in-More-menu.patch
+# Running a browser as root may not be the smartest thing to do,
+# but falkon does it during installation, so let's make it work...
+Patch2:		falkon-3.1.0-fix-running-as-root.patch
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
 Url:		https://github.com/KDE/falkon
