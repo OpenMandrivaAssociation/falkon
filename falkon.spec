@@ -55,6 +55,7 @@ Requires:	%{_lib}qt5-output-driver-default
 Conflicts:	rosa-media-player-plugin
 Provides:	webclient
 Requires:	indexhtml
+Requires:	xdg-utils
 
 %rename qupzilla
 
