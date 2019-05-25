@@ -22,7 +22,7 @@ Patch2:		falkon-3.1.0-fix-running-as-root.patch
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
 Url:		https://github.com/KDE/falkon
-BuildRequires:	cmake cmake(ECM)
+BuildRequires:	cmake(ECM)
 BuildRequires:	ninja
 BuildRequires:	qmake5
 BuildRequires:	qt5-linguist-tools
@@ -52,6 +52,7 @@ Requires:	qt5-qtbase-database-plugin-sqlite
 Requires:	%{_lib}qt5-output-driver-default
 Conflicts:	rosa-media-player-plugin
 Provides:	webclient
+Requires:	indexhtml
 
 %rename qupzilla
 
