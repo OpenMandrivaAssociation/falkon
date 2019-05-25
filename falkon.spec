@@ -154,14 +154,9 @@ application in almost any way. This package contains the following plugins:
 dos2unix README.md
 
 %build
-export USE_LIBPATH=%{_libdir}/
-export USE_WEBGL="true"
-export DISABLE_UPDATES_CHECK="true"
-export DISABLE_DBUS="false"
 export PORTABLE_BUILD="false"
-export KDE_INTEGRATION="true"
 
-%cmake -G Ninja
+%cmake_kde5 -DDISABLE_DBUS:BOOL=FALSE
 %ninja_build
 
 %install
