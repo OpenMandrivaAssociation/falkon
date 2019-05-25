@@ -19,6 +19,7 @@ Patch1:		falkon-3.1.0-not-in-More-menu.patch
 # Running a browser as root may not be the smartest thing to do,
 # but falkon does it during installation, so let's make it work...
 Patch2:		falkon-3.1.0-fix-running-as-root.patch
+Patch3:		falkon-3.1.0-native-scrollbars.patch
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
 Url:		https://github.com/KDE/falkon
@@ -165,11 +166,15 @@ export KDE_INTEGRATION="true"
 %install
 %ninja_install -C build
 
+# remove useless plugins
+rm -fv %{buildroot}%{_kf5_qtplugindir}/%{name}/TestPlugin.so
+rm -rfv %{buildroot}%{_kf5_qtplugindir}/%{name}/qml/helloqml
+
 # find_lang can't deal with the strange mix of .mo and .qm style
 # translations all put in the same place, so let's do the right thing
 # manually
-TOPDIR="`pwd`"
+TOPDIR="$(pwd)"
 cd %{buildroot}
 find .%{_datadir}/locale -type f -name "*.qm" -o -name "*.mo" |while read r; do
-	printf '%%%%lang(%%s) %%s\n' `echo $r |cut -d/ -f5` `echo $r |cut -b2-` >>"$TOPDIR"/%{name}.lang
+	printf '%%%%lang(%%s) %%s\n' $(echo $r |cut -d/ -f5) $(echo $r |cut -b2-) >>"$TOPDIR"/%{name}.lang
 done
