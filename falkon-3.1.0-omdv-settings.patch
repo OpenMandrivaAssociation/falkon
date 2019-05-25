@@ -1,0 +1,80 @@
+diff -Naur falkon-3.1.0/src/lib/app/browserwindow.cpp falkon-3.1.0.tpg/src/lib/app/browserwindow.cpp
+--- falkon-3.1.0/src/lib/app/browserwindow.cpp	2019-03-19 18:06:45.000000000 +0000
++++ falkon-3.1.0.tpg/src/lib/app/browserwindow.cpp	2019-05-25 19:47:45.146817073 +0000
+@@ -575,7 +575,7 @@
+ 
+     //Url settings
+     settings.beginGroup(QSL("Web-URL-Settings"));
+-    m_homepage = settings.value(QSL("homepage"), QSL("falkon:start")).toUrl();
++    m_homepage = settings.value(QSL("homepage"), QSL("file:///usr/share/doc/HTML/index.html")).toUrl();
+     settings.endGroup();
+ 
+     //Browser Window settings
+diff -Naur falkon-3.1.0/src/lib/data/data/bookmarks.json falkon-3.1.0.tpg/src/lib/data/data/bookmarks.json
+--- falkon-3.1.0/src/lib/data/data/bookmarks.json	2019-03-19 18:06:45.000000000 +0000
++++ falkon-3.1.0.tpg/src/lib/data/data/bookmarks.json	2019-05-25 19:41:10.817326710 +0000
+@@ -1,7 +1,51 @@
+ {
+  "roots": {
+   "bookmark_bar": {
+-   "children": [ ],
++   "children": [
++       {
++            "description": "OpenMandriva",
++            "keyword": "openmandriva",
++            "name": "OpenMandriva",
++            "type": "url",
++            "url": "https://www.openmandriva.org/",
++            "visit_count": 0
++        },
++        {
++            "description": "OpenMandriva forums",
++            "keyword": "openmandriva-forum",
++            "name": "OpenMandriva Forums",
++            "type": "url",
++            "url": "https://forum.openmandriva.org/",
++            "visit_count": 0
++        },
++        {
++            "description": "OpenMandriva issues tracker",
++            "keyword": "openmandriva-issues",
++            "name": "File a bug report",
++            "type": "url",
++            "url": "https://issues.openmandriva.org/",
++            "visit_count": 0
++        },
++        {
++            "type": "separator"
++        },
++        {
++            "description": "OpenMandriva Wikipedia",
++            "keyword": "openmandriva-wuki",
++            "name": "OpenMandriva Wiki",
++            "type": "url",
++            "url": "https://wiki.openmandriva.org/",
++            "visit_count": 0
++        },
++        {
++            "description": "OpenMandriva Automatic Build Farm",
++            "keyword": "openmandriva-abf",
++            "name": "OpenMandriva Automatic Build Farm",
++            "type": "url",
++            "url": "https://abf.openmandriva.org/",
++            "visit_count": 0
++        }
++    ],
+    "description": "Bookmarks located in Bookmarks Toolbar",
+    "expanded": true,
+    "expanded_sidebar": true,
+diff -Naur falkon-3.1.0/src/lib/preferences/preferences.cpp falkon-3.1.0.tpg/src/lib/preferences/preferences.cpp
+--- falkon-3.1.0/src/lib/preferences/preferences.cpp	2019-03-19 18:06:45.000000000 +0000
++++ falkon-3.1.0.tpg/src/lib/preferences/preferences.cpp	2019-05-25 19:46:40.582213400 +0000
+@@ -142,7 +142,7 @@
+     Settings settings;
+     //GENERAL URLs
+     settings.beginGroup("Web-URL-Settings");
+-    m_homepage = settings.value("homepage", QUrl(QSL("falkon:start"))).toUrl();
++    m_homepage = settings.value("homepage", QUrl(QSL("file:///usr/share/doc/HTML/index.html"))).toUrl();
+     m_newTabUrl = settings.value("newTabUrl", QUrl(QSL("falkon:speeddial"))).toUrl();
+     ui->homepage->setText(m_homepage.toEncoded());
+     ui->newTabUrl->setText(m_newTabUrl.toEncoded());

@@ -1,7 +1,9 @@
 %define oname falkon
 %define major 2
 %define snapshot %nil
-%global optflags %{optflags} -Wno-error=return-type-c-linkage
+%global optflags %{optflags} -O3 -Wno-error=return-type-c-linkage
+
+%global __provides_exclude_from ^%{_qt5_plugindir}/falkon/.*$
 
 Summary:	Fast, lightweight web browser based on QtWebEngine
 Name:		falkon
@@ -13,6 +15,9 @@ Source0:	%{oname}-%{snapshot}.tar.xz
 Release:	3
 Source0:	http://download.kde.org/stable/falkon/%(echo %{version} |cut -d. -f1-2)/falkon-%{version}.tar.xz
 %endif
+License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
+Group:		Networking/WWW
+Url:		https://github.com/KDE/falkon
 Source100:	falkon.rpmlintrc
 Patch0:		falkon-3.0.1-webinspector.patch
 Patch1:		falkon-3.1.0-not-in-More-menu.patch
@@ -20,12 +25,9 @@ Patch1:		falkon-3.1.0-not-in-More-menu.patch
 # but falkon does it during installation, so let's make it work...
 Patch2:		falkon-3.1.0-fix-running-as-root.patch
 Patch3:		falkon-3.1.0-native-scrollbars.patch
-License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
-Group:		Networking/WWW
-Url:		https://github.com/KDE/falkon
+Patch4:		falkon-3.1.0-omdv-settings.patch
+
 BuildRequires:	cmake(ECM)
-BuildRequires:	ninja
-BuildRequires:	qmake5
 BuildRequires:	qt5-linguist-tools
 BuildRequires:	dos2unix
 BuildRequires:	pkgconfig(gnome-keyring-1)
@@ -56,7 +58,6 @@ Conflicts:	rosa-media-player-plugin
 Provides:	webclient
 Requires:	indexhtml
 Requires:	xdg-utils
-
 %rename qupzilla
 
 %description
@@ -139,10 +140,44 @@ application in almost any way. This package contains the following plugins:
 
 %files plugins
 %{_libdir}/plugins/falkon/*.so
+%exclude %{_qt5_plugindir}/%{name}/GnomeKeyringPasswords.so
+%exclude %{_qt5_plugindir}/%{name}/KDEFrameworksIntegration.so
 %{_libdir}/plugins/falkon/python/hellopython
 %{_libdir}/plugins/falkon/python/middleclickloader
 %{_libdir}/plugins/falkon/python/runaction
 %{_libdir}/plugins/falkon/qml/helloqml
+
+#----------------------------------------------------------------------------
+
+%package gnome-keyring
+Summary:	GNOME Keyring integration plugin for %{name}
+Group:		Networking/WWW
+Requires:	%{name} = %{EVRD}
+Conflicts:	%{name}-plugins < 3.10-3
+
+%description gnome-keyring
+GNOME Keyring integration plugin.
+
+%files gnome-keyring
+%{_qt5_plugindir}/%{name}/GnomeKeyringPasswords.so
+
+#----------------------------------------------------------------------------
+
+%package kde
+Summary:	KDE Frameworks Integration plugin for %{name}
+Group:		Networking/WWW
+Requires:	%{name} = %{EVRD}
+Conflicts:	%{name}-plugins < 3.10-3
+
+%description kde
+Plugin for Falkon adding support for:
+- storing passwords securely in KWallet,
+- additional URL protocols using KIO (e.g., man:, info:, gopher:, etc.),
+- a "Share page" menu using the KDE Purpose Framework,
+- intercepting crashes with KCrash, bringing up the DrKonqi crash handler.
+
+%files kde
+%{_qt5_plugindir}/%{name}/KDEFrameworksIntegration.so
 
 #----------------------------------------------------------------------------
 
@@ -152,6 +187,7 @@ application in almost any way. This package contains the following plugins:
 %else
 %autosetup -p1 -n %{oname}-%{version}
 %endif
+
 dos2unix README.md
 
 %build
