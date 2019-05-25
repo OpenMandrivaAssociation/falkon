@@ -198,8 +198,8 @@ export PORTABLE_BUILD="false"
 %ninja_install -C build
 
 # remove useless plugins
-rm -fv %{buildroot}%{_kf5_qtplugindir}/%{name}/TestPlugin.so
-rm -rfv %{buildroot}%{_kf5_qtplugindir}/%{name}/qml/helloqml
+rm -fv %{buildroot}%{_qt5_plugindir}/%{name}/TestPlugin.so
+rm -rfv %{buildroot}%{_qt5_plugindir}/%{name}/qml/helloqml
 
 # find_lang can't deal with the strange mix of .mo and .qm style
 # translations all put in the same place, so let's do the right thing
