@@ -47,6 +47,7 @@ BuildRequires:	cmake(KF5Crash)
 BuildRequires:	cmake(KF5CoreAddons)
 BuildRequires:	cmake(KF5Purpose)
 BuildRequires:	cmake(PySide2)
+BuildRequires:	gettext-devel
 Requires:	%{name}-core = %{EVRD}
 Suggests:	%{name}-plugins = %{EVRD}
 Requires:	qt5-qtbase-database-plugin-sqlite
