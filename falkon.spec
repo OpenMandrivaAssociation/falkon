@@ -116,10 +116,9 @@ available to everyone.
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/org.kde.falkon.desktop
 %{_datadir}/metainfo/org.kde.falkon.appdata.xml
-%dir %{_libdir}/plugins
-%dir %{_libdir}/plugins/falkon
-%dir %{_libdir}/plugins/falkon/python
-%dir %{_libdir}/plugins/falkon/qml
+%dir %{_qt5_plugindir}/%{name}
+%dir %{_qt5_plugindir}/%{name}/python
+%dir %{_qt5_plugindir}/%{name}/qml
 
 #----------------------------------------------------------------------------
 
@@ -139,13 +138,12 @@ application in almost any way. This package contains the following plugins:
 * GreaseMonkey
 
 %files plugins
-%{_libdir}/plugins/falkon/*.so
+%{_qt5_plugindir}/%{name}/*.so
 %exclude %{_qt5_plugindir}/%{name}/GnomeKeyringPasswords.so
 %exclude %{_qt5_plugindir}/%{name}/KDEFrameworksIntegration.so
-%{_libdir}/plugins/falkon/python/hellopython
-%{_libdir}/plugins/falkon/python/middleclickloader
-%{_libdir}/plugins/falkon/python/runaction
-%{_libdir}/plugins/falkon/qml/helloqml
+%{_qt5_plugindir}/%{name}/python/hellopython
+%{_qt5_plugindir}/%{name}/python/middleclickloader
+%{_qt5_plugindir}/%{name}/python/runaction
 
 #----------------------------------------------------------------------------
 
