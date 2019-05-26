@@ -12,7 +12,7 @@ Version:	3.1.0
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	4
+Release:	5
 Source0:	http://download.kde.org/stable/falkon/%(echo %{version} |cut -d. -f1-2)/falkon-%{version}.tar.xz
 %endif
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
@@ -151,7 +151,7 @@ application in almost any way. This package contains the following plugins:
 Summary:	GNOME Keyring integration plugin for %{name}
 Group:		Networking/WWW
 Requires:	%{name} = %{EVRD}
-Conflicts:	%{name}-plugins < 3.10-3
+Conflicts:	%{name}-plugins < 3.1.0-5
 
 %description gnome-keyring
 GNOME Keyring integration plugin.
@@ -165,7 +165,7 @@ GNOME Keyring integration plugin.
 Summary:	KDE Frameworks Integration plugin for %{name}
 Group:		Networking/WWW
 Requires:	%{name} = %{EVRD}
-Conflicts:	%{name}-plugins < 3.10-3
+Conflicts:	%{name}-plugins < 3.1.0-5
 
 %description kde
 Plugin for Falkon adding support for:
