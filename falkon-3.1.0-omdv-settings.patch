@@ -6,7 +6,7 @@ diff -Naur falkon-3.1.0/src/lib/app/browserwindow.cpp falkon-3.1.0.tpg/src/lib/a
      //Url settings
      settings.beginGroup(QSL("Web-URL-Settings"));
 -    m_homepage = settings.value(QSL("homepage"), QSL("falkon:start")).toUrl();
-+    m_homepage = settings.value(QSL("homepage"), QSL("file:///usr/share/doc/HTML/index.html")).toUrl();
++    m_homepage = settings.value(QSL("homepage"), QSL("file:///usr/share/mdk/indexhtml/index.html")).toUrl();
      settings.endGroup();
  
      //Browser Window settings
@@ -74,7 +74,7 @@ diff -Naur falkon-3.1.0/src/lib/preferences/preferences.cpp falkon-3.1.0.tpg/src
      //GENERAL URLs
      settings.beginGroup("Web-URL-Settings");
 -    m_homepage = settings.value("homepage", QUrl(QSL("falkon:start"))).toUrl();
-+    m_homepage = settings.value("homepage", QUrl(QSL("file:///usr/share/doc/HTML/index.html"))).toUrl();
++    m_homepage = settings.value("homepage", QUrl(QSL("file:///usr/share/mdk/indexhtml/index.html"))).toUrl();
      m_newTabUrl = settings.value("newTabUrl", QUrl(QSL("falkon:speeddial"))).toUrl();
      ui->homepage->setText(m_homepage.toEncoded());
      ui->newTabUrl->setText(m_newTabUrl.toEncoded());
