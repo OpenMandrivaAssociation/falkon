@@ -1,0 +1,11 @@
+diff -up falkon-3.1.0/src/plugins/PyFalkon/CMakeLists.txt.omv~ falkon-3.1.0/src/plugins/PyFalkon/CMakeLists.txt
+--- falkon-3.1.0/src/plugins/PyFalkon/CMakeLists.txt.omv~	2019-09-21 22:58:22.074117013 +0200
++++ falkon-3.1.0/src/plugins/PyFalkon/CMakeLists.txt	2019-09-21 22:58:59.236364238 +0200
+@@ -167,6 +167,7 @@ target_include_directories(PyFalkon
+     ${SHIBOKEN_INCLUDE_DIR}
+     ${SHIBOKEN_PYTHON_INCLUDE_DIR}
+     ${PYSIDE_INCLUDE_DIR}
++    ${PYSIDE_INCLUDE_DIR}/QtPrintSupport
+     ${PYSIDE_ADDITIONAL_INCLUDES}
+     ${CMAKE_SOURCE_DIR}
+     ${CMAKE_CURRENT_BINARY_DIR}/PyFalkon

@@ -27,6 +27,7 @@ Patch2:		falkon-3.1.0-fix-running-as-root.patch
 Patch3:		falkon-3.1.0-native-scrollbars.patch
 Patch4:		falkon-3.1.0-omdv-settings.patch
 Patch5:		falkon-3.1.0-menuentry.patch
+Patch6:		falkon-3.1.0-find-pyside-headers.patch
 
 BuildRequires:	cmake(ECM)
 BuildRequires:	qt5-linguist-tools
@@ -193,7 +194,13 @@ dos2unix README.md
 %build
 export PORTABLE_BUILD="false"
 
-%cmake_kde5 -DDISABLE_DBUS:BOOL=FALSE
+%cmake_kde5 -DDISABLE_DBUS:BOOL=FALSE \
+	-DSHIBOKEN_BINARY=%{_bindir}/shiboken2 \
+	-DSHIBOKEN_INCLUDE_DIR=%{_includedir}/shiboken2 \
+	-DSHIBOKEN_PYTHON_INCLUDE_DIR=%{_includedir}/python3.7m \
+	-DSHIBOKEN_LIBRARY=$(ls %{_libdir}/libshiboken2.cpython-3*.so) \
+	-DPYSIDE_LIBRARY=$(ls %{_libdir}/libpyside2.cpython-3*.so) \
+	-DPYSIDE_INCLUDE_DIR=%{_includedir}/PySide2
 %ninja_build
 
 %install
