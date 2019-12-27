@@ -1,7 +1,7 @@
 %define oname falkon
 %define major 2
 %define snapshot %nil
-%global optflags %{optflags} -O3 -Wno-error=return-type-c-linkage
+%global optflags %{optflags} -O3 -Wno-error=return-type-c-linkage -I%(python -c "from distutils.sysconfig import get_python_inc; print (get_python_inc());")
 
 %global __provides_exclude_from ^%{_qt5_plugindir}/falkon/.*$
 
@@ -12,7 +12,7 @@ Version:	3.1.0
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	11
+Release:	12
 Source0:	http://download.kde.org/stable/falkon/%(echo %{version} |cut -d. -f1-2)/falkon-%{version}.tar.xz
 %endif
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
@@ -28,6 +28,7 @@ Patch3:		falkon-3.1.0-native-scrollbars.patch
 Patch4:		falkon-3.1.0-omdv-settings.patch
 Patch5:		falkon-3.1.0-menuentry.patch
 Patch6:		falkon-3.1.0-find-pyside-headers.patch
+Patch7:		falkon-3.1.0-qt-5.14.patch
 
 BuildRequires:	cmake(ECM)
 BuildRequires:	qt5-linguist-tools
