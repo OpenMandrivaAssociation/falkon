@@ -12,7 +12,7 @@ Version:	3.1.0
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	14
+Release:	15
 Source0:	http://download.kde.org/stable/falkon/%(echo %{version} |cut -d. -f1-2)/falkon-%{version}.tar.xz
 %endif
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
@@ -61,7 +61,7 @@ Requires:	qt5-qtbase-database-plugin-sqlite
 Requires:	%{_lib}qt5-output-driver-default
 Conflicts:	rosa-media-player-plugin
 Provides:	webclient
-Requires:	indexhtml
+Requires:	distro-release-indexhtml
 Requires:	xdg-utils
 %rename qupzilla
 
@@ -203,6 +203,7 @@ export PORTABLE_BUILD="false"
 	-DSHIBOKEN_LIBRARY=$(ls %{_libdir}/libshiboken2.cpython-3*.so) \
 	-DPYSIDE_LIBRARY=$(ls %{_libdir}/libpyside2.cpython-3*.so) \
 	-DPYSIDE_INCLUDE_DIR=%{_includedir}/PySide2
+
 %ninja_build
 
 %install
