@@ -1,0 +1,12 @@
+diff -up falkon-3.1.0/src/lib/app/qzcommon.cpp.omv~ falkon-3.1.0/src/lib/app/qzcommon.cpp
+--- falkon-3.1.0/src/lib/app/qzcommon.cpp.omv~	2021-04-12 17:38:31.868265212 +0200
++++ falkon-3.1.0/src/lib/app/qzcommon.cpp	2021-04-12 17:41:25.191470094 +0200
+@@ -20,7 +20,7 @@
+ 
+ namespace Qz
+ {
+-const int sessionVersion = 0x0004;
++FALKON_EXPORT const int sessionVersion = 0x0004;
+ 
+ FALKON_EXPORT const char *APPNAME = "Falkon";
+ FALKON_EXPORT const char *VERSION = FALKON_VERSION;

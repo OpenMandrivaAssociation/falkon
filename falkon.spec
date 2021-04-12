@@ -12,7 +12,7 @@ Version:	3.1.0
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	16
+Release:	17
 Source0:	http://download.kde.org/stable/falkon/%(echo %{version} |cut -d. -f1-2)/falkon-%{version}.tar.xz
 %endif
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
@@ -30,6 +30,7 @@ Patch5:		falkon-3.1.0-menuentry.patch
 Patch6:		falkon-3.1.0-find-pyside-headers.patch
 Patch7:		falkon-3.1.0-qt-5.14.patch
 Patch8:		falkon-3.1.0-qt-5.15.patch
+Patch9:		falkon-3.1.0-compile.patch
 
 BuildRequires:	cmake(ECM)
 BuildRequires:	qt5-linguist-tools
