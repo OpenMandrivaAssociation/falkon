@@ -1,18 +1,18 @@
 diff -Naur falkon-3.1.0/src/lib/app/browserwindow.cpp falkon-3.1.0.tpg/src/lib/app/browserwindow.cpp
 --- falkon-3.1.0/src/lib/app/browserwindow.cpp	2019-03-19 18:06:45.000000000 +0000
-+++ falkon-3.1.0.tpg/src/lib/app/browserwindow.cpp	2019-05-25 19:47:45.146817073 +0000
++++ falkon-3.1.0.tpg/src/lib/app/browserwindow.cpp	2021-04-17 14:18:46.594812558 +0000
 @@ -575,7 +575,7 @@
  
      //Url settings
      settings.beginGroup(QSL("Web-URL-Settings"));
 -    m_homepage = settings.value(QSL("homepage"), QSL("falkon:start")).toUrl();
-+    m_homepage = settings.value(QSL("homepage"), QSL("file:///usr/share/mdk/indexhtml/index.html")).toUrl();
++    m_homepage = settings.value(QSL("homepage"), QSL("falkon:speeddial")).toUrl();
      settings.endGroup();
  
      //Browser Window settings
 diff -Naur falkon-3.1.0/src/lib/data/data/bookmarks.json falkon-3.1.0.tpg/src/lib/data/data/bookmarks.json
 --- falkon-3.1.0/src/lib/data/data/bookmarks.json	2019-03-19 18:06:45.000000000 +0000
-+++ falkon-3.1.0.tpg/src/lib/data/data/bookmarks.json	2019-05-25 19:41:10.817326710 +0000
++++ falkon-3.1.0.tpg/src/lib/data/data/bookmarks.json	2021-04-17 13:47:45.354681717 +0000
 @@ -1,7 +1,51 @@
  {
   "roots": {
@@ -67,8 +67,8 @@ diff -Naur falkon-3.1.0/src/lib/data/data/bookmarks.json falkon-3.1.0.tpg/src/li
     "expanded": true,
     "expanded_sidebar": true,
 diff -Naur falkon-3.1.0/src/lib/preferences/preferences.cpp falkon-3.1.0.tpg/src/lib/preferences/preferences.cpp
---- falkon-3.1.0/src/lib/preferences/preferences.cpp	2019-03-19 18:06:45.000000000 +0000
-+++ falkon-3.1.0.tpg/src/lib/preferences/preferences.cpp	2019-05-25 19:46:40.582213400 +0000
+--- falkon-3.1.0/src/lib/preferences/preferences.cpp	2021-04-17 13:45:47.606076978 +0000
++++ falkon-3.1.0.tpg/src/lib/preferences/preferences.cpp	2021-04-17 14:17:06.322453717 +0000
 @@ -142,7 +142,7 @@
      Settings settings;
      //GENERAL URLs
@@ -78,3 +78,19 @@ diff -Naur falkon-3.1.0/src/lib/preferences/preferences.cpp falkon-3.1.0.tpg/src
      m_newTabUrl = settings.value("newTabUrl", QUrl(QSL("falkon:speeddial"))).toUrl();
      ui->homepage->setText(m_homepage.toEncoded());
      ui->newTabUrl->setText(m_newTabUrl.toEncoded());
+@@ -989,6 +989,15 @@
+     settings.setValue("Position", m_notification.data() ? m_notification.data()->pos() : m_notifPosition);
+     settings.endGroup();
+ 
++    //SPEEDDIAL
++    settings.beginGroup("SpeedDial");
++    settings.setValue("background", "file:///usr/share/mdk/backgrounds/default.png");
++    settings.setValue("backsize", "cover");
++    settings.setValue("pages", '"url:\"https://openmandriva.org\"|title:\"OpenMandriva\";url:\"https://forum.openmandriva.org\"|title:\"OpenMandriva Forum\";url:\"https://abf.openmandriva.org\"|title:\"Automatic Build Farm\";"');
++    settings.setValue("pagesrow", "4");
++    settings.setValue("sdcenter", "true");
++    settings.endGroup();
++
+     //SPELLCHECK
+     settings.beginGroup(QSL("SpellCheck"));
+     settings.setValue("Enabled", ui->spellcheckEnabled->isChecked());
