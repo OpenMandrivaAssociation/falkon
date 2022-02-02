@@ -1,34 +1,24 @@
-diff -up falkon-3.1.0/linux/applications/org.kde.falkon.desktop.omv~ falkon-3.1.0/linux/applications/org.kde.falkon.desktop
---- falkon-3.1.0/linux/applications/org.kde.falkon.desktop.omv~	2019-06-15 01:31:59.737154300 +0200
-+++ falkon-3.1.0/linux/applications/org.kde.falkon.desktop	2019-06-15 01:58:33.735076965 +0200
-@@ -1,30 +1,30 @@
+diff -up falkon-3.2.0/linux/applications/org.kde.falkon.desktop.6~ falkon-3.2.0/linux/applications/org.kde.falkon.desktop
+--- falkon-3.2.0/linux/applications/org.kde.falkon.desktop.6~	2022-02-02 04:58:57.747026095 +0100
++++ falkon-3.2.0/linux/applications/org.kde.falkon.desktop	2022-02-02 05:00:19.982444821 +0100
+@@ -1,39 +1,32 @@
  [Desktop Entry]
 -Name=Falkon
 -Name[ar]=فالكون
+-Name[az]=Falkon
 -Name[ca]=Falkon
 -Name[ca@valencia]=Falkon
 -Name[cs]=Falkon
 -Name[da]=Falkon
 -Name[de]=Falkon
+-Name[el]=Falkon
 -Name[en_GB]=Falkon
 -Name[es]=Falkon
+-Name[et]=Falkon
+-Name[eu]=Falkon
 -Name[fi]=Falkon
 -Name[fr]=Falkon
 -Name[gl]=Falkon
--Name[id]=Falkon
--Name[it]=Falkon
--Name[nl]=Falkon
--Name[nn]=Falkon
--Name[pl]=Falkon
--Name[pt]=Falkon
--Name[pt_BR]=Falkon
--Name[ru]=Falkon
--Name[sk]=Falkon
--Name[sv]=Falkon
--Name[uk]=Falkon
--Name[x-test]=xxFalkonxx
--Name[zh_CN]=Falkon
--Name[zh_TW]=Falkon
 +Name=Falkon Web Browser
 +Name[ar]=فالكون متصفّح وبّ
 +Name[ca]=Navegador web Falkon
@@ -41,10 +31,29 @@ diff -up falkon-3.1.0/linux/applications/org.kde.falkon.desktop.omv~ falkon-3.1.
 +Name[fi]=Verkkoselain Falkon
 +Name[fr]=Navigateur Web Falkon
 +Name[gl]=Navegador web Falkon
+ Name[ia]=Falkon:
+-Name[id]=Falkon
+-Name[it]=Falkon
+-Name[ko]=Falkon
+-Name[lt]=Falkon
+-Name[nl]=Falkon
+-Name[nn]=Falkon
 +Name[id]=Falkon Penelusur Web
 +Name[it]=Falkon Web browser
 +Name[nl]=Falkon Webbrowser
 +Name[nn]=Falkon Nettlesar
+ Name[pa]=ਫਾਲਕਨ
+-Name[pl]=Falkon
+-Name[pt]=Falkon
+-Name[pt_BR]=Falkon
+-Name[ru]=Falkon
+-Name[sk]=Falkon
+-Name[sl]=Falkon
+-Name[sv]=Falkon
+-Name[uk]=Falkon
+-Name[x-test]=xxFalkonxx
+-Name[zh_CN]=Falkon
+-Name[zh_TW]=Falkon
 +Name[pl]=Przeglądarka internetowa Falkon
 +Name[pt]=Navegador Web Falkon
 +Name[pt_BR]=Navegador Web Falkon

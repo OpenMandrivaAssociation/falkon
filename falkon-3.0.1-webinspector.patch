@@ -1,16 +1,27 @@
-diff -up falkon-3.0.1/src/main/main.cpp.omv~ falkon-3.0.1/src/main/main.cpp
---- falkon-3.0.1/src/main/main.cpp.omv~	2018-09-09 21:56:19.255755103 +0200
-+++ falkon-3.0.1/src/main/main.cpp	2018-09-09 21:57:51.574570723 +0200
-@@ -133,6 +133,15 @@ int main(int argc, char* argv[])
-     signal(SIGSEGV, falkon_signal_handler);
+diff -up falkon-3.2.0/src/main/main.cpp.omv~ falkon-3.2.0/src/main/main.cpp
+--- falkon-3.2.0/src/main/main.cpp.omv~	2022-02-02 05:47:18.471267920 +0100
++++ falkon-3.2.0/src/main/main.cpp	2022-02-02 05:47:39.170368941 +0100
+@@ -17,6 +17,7 @@
+ * ============================================================ */
+ #include "mainapplication.h"
+ #include "proxystyle.h"
++#include <QTcpSocket>
+ 
+ #include <iostream>
+ 
+diff -up falkon-3.2.0/src/main/main.cpp.1~ falkon-3.2.0/src/main/main.cpp
+--- falkon-3.2.0/src/main/main.cpp.1~	2022-02-02 04:57:16.637497045 +0100
++++ falkon-3.2.0/src/main/main.cpp	2022-02-02 04:57:39.395617641 +0100
+@@ -52,6 +52,15 @@ int main(int argc, char* argv[])
+     qInstallMessageHandler(&msgHandler);
  #endif
  
 +    // Enable Chromium DevTools -- press Ctrl+Shift+I for Web Inspector
 +    QTcpSocket *socket = new QTcpSocket();
 +    if(socket->bind()) {
-+	    uint16_t port = socket->localPort();
-+	    qputenv("QTWEBENGINE_REMOTE_DEBUGGING", QByteArray::number(port));
-+	    socket->close();
++           uint16_t port = socket->localPort();
++           qputenv("QTWEBENGINE_REMOTE_DEBUGGING", QByteArray::number(port));
++           socket->close();
 +    }
 +    delete socket;
 +

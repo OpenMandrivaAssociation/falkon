@@ -7,13 +7,13 @@
 
 Summary:	Fast, lightweight web browser based on QtWebEngine
 Name:		falkon
-Version:	3.1.0
+Version:	3.2.0
 %if 0%snapshot
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	18
-Source0:	http://download.kde.org/stable/falkon/%(echo %{version} |cut -d. -f1-2)/falkon-%{version}.tar.xz
+Release:	1
+Source0:	http://download.kde.org/stable/falkon/%{version}/falkon-%{version}.tar.xz
 %endif
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
@@ -27,9 +27,6 @@ Patch2:		falkon-3.1.0-fix-running-as-root.patch
 Patch3:		falkon-3.1.0-native-scrollbars.patch
 Patch4:		falkon-3.1.0-omdv-settings.patch
 Patch5:		falkon-3.1.0-menuentry.patch
-Patch6:		falkon-3.1.0-find-pyside-headers.patch
-Patch7:		falkon-3.1.0-qt-5.14.patch
-Patch8:		falkon-3.1.0-qt-5.15.patch
 Patch9:		falkon-3.1.0-compile.patch
 
 BuildRequires:	cmake(ECM)
@@ -119,12 +116,9 @@ available to everyone.
 %{_datadir}/%{name}/themes
 %{_datadir}/bash-completion/completions/*
 %{_iconsdir}/hicolor/*/apps/*
-%{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/org.kde.falkon.desktop
 %{_datadir}/metainfo/org.kde.falkon.appdata.xml
 %dir %{_qt5_plugindir}/%{name}
-%dir %{_qt5_plugindir}/%{name}/python
-%dir %{_qt5_plugindir}/%{name}/qml
 
 #----------------------------------------------------------------------------
 
@@ -147,9 +141,8 @@ application in almost any way. This package contains the following plugins:
 %{_qt5_plugindir}/%{name}/*.so
 %exclude %{_qt5_plugindir}/%{name}/GnomeKeyringPasswords.so
 %exclude %{_qt5_plugindir}/%{name}/KDEFrameworksIntegration.so
-%{_qt5_plugindir}/%{name}/python/hellopython
-%{_qt5_plugindir}/%{name}/python/middleclickloader
-%{_qt5_plugindir}/%{name}/python/runaction
+%{_qt5_plugindir}/%{name}/middleclickloader
+%{_qt5_plugindir}/%{name}/runaction
 
 #----------------------------------------------------------------------------
 

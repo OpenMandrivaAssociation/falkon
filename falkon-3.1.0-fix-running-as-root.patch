@@ -1,16 +1,17 @@
-diff -up falkon-3.1.0/src/main/main.cpp.3~ falkon-3.1.0/src/main/main.cpp
---- falkon-3.1.0/src/main/main.cpp.3~	2019-05-11 17:15:24.193255861 +0200
-+++ falkon-3.1.0/src/main/main.cpp	2019-05-11 17:22:48.771140375 +0200
-@@ -23,6 +23,8 @@
+diff -up falkon-3.2.0/src/main/main.cpp.3~ falkon-3.2.0/src/main/main.cpp
+--- falkon-3.2.0/src/main/main.cpp.3~	2022-02-02 04:58:26.649865176 +0100
++++ falkon-3.2.0/src/main/main.cpp	2022-02-02 04:58:44.302956710 +0100
+@@ -20,6 +20,9 @@
+ 
  #include <iostream>
  
- #if defined(Q_OS_LINUX) || defined(__GLIBC__) || defined(__FreeBSD__) || defined(__HAIKU__)
 +#include <unistd.h>
 +#include <sys/types.h>
- #include <signal.h>
- #include <execinfo.h>
- 
-@@ -142,6 +144,17 @@ int main(int argc, char* argv[])
++
+ #ifndef Q_OS_WIN
+ void msgHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+ {
+@@ -61,6 +64,17 @@ int main(int argc, char* argv[])
      }
      delete socket;
  
