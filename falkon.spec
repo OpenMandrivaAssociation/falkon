@@ -12,7 +12,7 @@ Version:	3.2.0
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	1
+Release:	2
 Source0:	http://download.kde.org/stable/falkon/%{version}/falkon-%{version}.tar.xz
 %endif
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
