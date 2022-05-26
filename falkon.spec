@@ -2,18 +2,19 @@
 %define major 2
 %define snapshot %nil
 %global optflags %{optflags} -O3 -Wno-error=return-type-c-linkage -I%(python -c "from distutils.sysconfig import get_python_inc; print (get_python_inc());")
+%bcond_with pyside2
 
 %global __provides_exclude_from ^%{_qt5_plugindir}/falkon/.*$
 
 Summary:	Fast, lightweight web browser based on QtWebEngine
 Name:		falkon
-Version:	3.2.0
+Version:	22.04.1
 %if 0%snapshot
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	2
-Source0:	http://download.kde.org/stable/falkon/%{version}/falkon-%{version}.tar.xz
+Release:	1
+Source0:	https://github.com/KDE/falkon/archive/refs/tags/v%{version}.tar.gz
 %endif
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
@@ -50,8 +51,10 @@ BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5Crash)
 BuildRequires:	cmake(KF5CoreAddons)
 BuildRequires:	cmake(KF5Purpose)
+%if %{with pyside2}
 BuildRequires:	cmake(PySide2)
 BuildRequires:	cmake(Shiboken2)
+%endif
 BuildRequires:	gettext-devel
 Requires:	%{name}-core = %{EVRD}
 Suggests:	%{name}-plugins = %{EVRD}
@@ -107,7 +110,7 @@ database with an SSL Manager.
 QupZilla's main aim is to be a very fast and very stable QtWebEngine browser
 available to everyone.
 
-%files core -f %{name}.lang
+%files core
 %{_bindir}/%{name}
 # No need to create a separate libpackage for a "library"
 # that can't be used by anything else...
@@ -141,8 +144,10 @@ application in almost any way. This package contains the following plugins:
 %{_qt5_plugindir}/%{name}/*.so
 %exclude %{_qt5_plugindir}/%{name}/GnomeKeyringPasswords.so
 %exclude %{_qt5_plugindir}/%{name}/KDEFrameworksIntegration.so
+%if %{with pyside2}
 %{_qt5_plugindir}/%{name}/middleclickloader
 %{_qt5_plugindir}/%{name}/runaction
+%endif
 
 #----------------------------------------------------------------------------
 
