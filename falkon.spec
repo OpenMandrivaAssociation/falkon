@@ -13,8 +13,8 @@ Version:	22.04.1
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	1
-Source0:	https://github.com/KDE/falkon/archive/refs/tags/v%{version}.tar.gz
+Release:	2
+Source0:	https://download.kde.org/stable/release-service/%{version}/src/falkon-%{version}.tar.xz
 %endif
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
@@ -110,7 +110,7 @@ database with an SSL Manager.
 QupZilla's main aim is to be a very fast and very stable QtWebEngine browser
 available to everyone.
 
-%files core
+%files core -f %{name}.lang
 %{_bindir}/%{name}
 # No need to create a separate libpackage for a "library"
 # that can't be used by anything else...
