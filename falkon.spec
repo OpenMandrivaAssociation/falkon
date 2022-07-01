@@ -13,7 +13,7 @@ Version:	22.04.1
 Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
-Release:	2
+Release:	3
 Source0:	https://download.kde.org/stable/release-service/%{version}/src/falkon-%{version}.tar.xz
 %endif
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
@@ -60,7 +60,6 @@ Requires:	%{name}-core = %{EVRD}
 Suggests:	%{name}-plugins = %{EVRD}
 Requires:	qt5-qtbase-database-plugin-sqlite
 Requires:	%{_lib}qt5-output-driver-default
-Conflicts:	rosa-media-player-plugin
 Provides:	webclient
 Requires:	distro-release-indexhtml
 Requires:	xdg-utils
@@ -218,5 +217,5 @@ rm -rfv %{buildroot}%{_qt5_plugindir}/%{name}/qml/helloqml
 TOPDIR="$(pwd)"
 cd %{buildroot}
 find .%{_datadir}/locale -type f -name "*.qm" -o -name "*.mo" |while read r; do
-	printf '%%%%lang(%%s) %%s\n' $(echo $r |cut -d/ -f5) $(echo $r |cut -b2-) >>"$TOPDIR"/%{name}.lang
+    printf '%%%%lang(%%s) %%s\n' $(echo $r |cut -d/ -f5) $(echo $r |cut -b2-) >>"$TOPDIR"/%{name}.lang
 done

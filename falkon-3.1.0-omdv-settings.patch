@@ -40,7 +40,7 @@ diff -Naur falkon-3.1.0/src/lib/data/data/bookmarks.json falkon-3.1.0.tpg/src/li
 +            "keyword": "openmandriva-issues",
 +            "name": "File a bug report",
 +            "type": "url",
-+            "url": "https://issues.openmandriva.org/",
++            "url": "https://github.com/OpenMandrivaAssociation/distribution/issues/",
 +            "visit_count": 0
 +        },
 +        {
@@ -48,7 +48,7 @@ diff -Naur falkon-3.1.0/src/lib/data/data/bookmarks.json falkon-3.1.0.tpg/src/li
 +        },
 +        {
 +            "description": "OpenMandriva Wikipedia",
-+            "keyword": "openmandriva-wuki",
++            "keyword": "openmandriva-wiki",
 +            "name": "OpenMandriva Wiki",
 +            "type": "url",
 +            "url": "https://wiki.openmandriva.org/",
@@ -84,7 +84,7 @@ diff -Naur falkon-3.1.0/src/lib/preferences/preferences.cpp falkon-3.1.0.tpg/src
  
 +    //SPEEDDIAL
 +    settings.beginGroup("SpeedDial");
-+    settings.setValue("background", "file:///usr/share/mdk/backgrounds/default.png");
++    settings.setValue("background", "file:///usr/share/wallpapers/default.png");
 +    settings.setValue("backsize", "cover");
 +    settings.setValue("pages", '"url:\"https://openmandriva.org\"|title:\"OpenMandriva\";url:\"https://forum.openmandriva.org\"|title:\"OpenMandriva Forum\";url:\"https://abf.openmandriva.org\"|title:\"Automatic Build Farm\";"');
 +    settings.setValue("pagesrow", "4");
