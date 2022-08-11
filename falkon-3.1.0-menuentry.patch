@@ -1,11 +1,12 @@
-diff -up falkon-22.04.1/linux/applications/org.kde.falkon.desktop.6~ falkon-22.04.1/linux/applications/org.kde.falkon.desktop
---- falkon-22.04.1/linux/applications/org.kde.falkon.desktop.6~	2022-05-26 11:03:07.560393768 +0200
-+++ falkon-22.04.1/linux/applications/org.kde.falkon.desktop	2022-05-26 11:04:25.055771832 +0200
-@@ -1,40 +1,30 @@
+diff -up falkon-22.07.90/linux/applications/org.kde.falkon.desktop.6~ falkon-22.07.90/linux/applications/org.kde.falkon.desktop
+--- falkon-22.07.90/linux/applications/org.kde.falkon.desktop.6~	2022-08-11 20:23:20.507239121 +0200
++++ falkon-22.07.90/linux/applications/org.kde.falkon.desktop	2022-08-11 20:30:37.403896889 +0200
+@@ -1,41 +1,39 @@
  [Desktop Entry]
 -Name=Falkon
 -Name[ar]=فالكون
 -Name[az]=Falkon
+-Name[bg]=Falkon
 -Name[ca]=Falkon
 -Name[ca@valencia]=Falkon
 -Name[cs]=Falkon
@@ -37,7 +38,7 @@ diff -up falkon-22.04.1/linux/applications/org.kde.falkon.desktop.6~ falkon-22.0
 -Name[tr]=Falkon
 -Name[uk]=Falkon
 -Name[x-test]=xxFalkonxx
--Name[zh_CN]=Falkon
+-Name[zh_CN]=Falkon 浏览器
 -Name[zh_TW]=Falkon
 +Name=Falkon Web Browser
 +Name[ar]=فالكون متصفّح وبّ
@@ -46,21 +47,30 @@ diff -up falkon-22.04.1/linux/applications/org.kde.falkon.desktop.6~ falkon-22.0
 +Name[cs]=Falkon Webový prohlížeč
 +Name[da]=Falkon Webbrowser
 +Name[de]=Falkon Web-Browser
-+Name[en_GB]=Falkon web browser
++Name[el]=Falkon Περιηγητής ιστού
++Name[en_GB]=Falkon Web Browser
 +Name[es]=Navegador web Falkon
++Name[et]=Veebilehitseja Falkon
++Name[eu]=Falkon Web arakatzailea
 +Name[fi]=Verkkoselain Falkon
 +Name[fr]=Navigateur Web Falkon
 +Name[gl]=Navegador web Falkon
++Name[ia]=Falkon: Navigator Web
 +Name[id]=Falkon Penelusur Web
 +Name[it]=Falkon Web browser
++Name[ko]=Falkon 웹 브라우저
++Name[lt]=Falkon Saityno naršyklė
 +Name[nl]=Falkon Webbrowser
 +Name[nn]=Falkon Nettlesar
++Name[pa]=ਫਾਲਕਨ ਵੈੱਬ ਬਰਾਊਜ਼ਰ
 +Name[pl]=Przeglądarka internetowa Falkon
 +Name[pt]=Navegador Web Falkon
 +Name[pt_BR]=Navegador Web Falkon
 +Name[ru]=Falkon интернет-браузер
 +Name[sk]=Webový prehliadač Falkon
++Name[sl]=Falkon Spletni brskalnik
 +Name[sv]=Falkon Webbläsare
++Name[tr]=Falkon Web Tarayıcı
 +Name[uk]=Falkon Переглядач інтернету
 +Name[x-test]=xxFalkon Web Browserxx
 +Name[zh_CN]=Falkon 网页浏览器
