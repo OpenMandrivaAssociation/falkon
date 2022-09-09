@@ -1,7 +1,7 @@
-diff -up falkon-22.07.90/linux/applications/org.kde.falkon.desktop.6~ falkon-22.07.90/linux/applications/org.kde.falkon.desktop
---- falkon-22.07.90/linux/applications/org.kde.falkon.desktop.6~	2022-08-11 20:23:20.507239121 +0200
-+++ falkon-22.07.90/linux/applications/org.kde.falkon.desktop	2022-08-11 20:30:37.403896889 +0200
-@@ -1,41 +1,39 @@
+diff -up falkon-22.08.1/linux/applications/org.kde.falkon.desktop.6~ falkon-22.08.1/linux/applications/org.kde.falkon.desktop
+--- falkon-22.08.1/linux/applications/org.kde.falkon.desktop.6~	2022-09-09 09:23:59.862257845 +0200
++++ falkon-22.08.1/linux/applications/org.kde.falkon.desktop	2022-09-09 12:05:48.336756470 +0200
+@@ -1,43 +1,41 @@
  [Desktop Entry]
 -Name=Falkon
 -Name[ar]=فالكون
@@ -22,7 +22,9 @@ diff -up falkon-22.07.90/linux/applications/org.kde.falkon.desktop.6~ falkon-22.
 -Name[gl]=Falkon
 -Name[ia]=Falkon:
 -Name[id]=Falkon
+-Name[is]=Falkon
 -Name[it]=Falkon
+-Name[ka]=Falkon
 -Name[ko]=Falkon
 -Name[lt]=Falkon
 -Name[nl]=Falkon
@@ -57,7 +59,9 @@ diff -up falkon-22.07.90/linux/applications/org.kde.falkon.desktop.6~ falkon-22.
 +Name[gl]=Navegador web Falkon
 +Name[ia]=Falkon: Navigator Web
 +Name[id]=Falkon Penelusur Web
++Name[is]=Falkon Vafri
 +Name[it]=Falkon Web browser
++Name[ka]=Falkon ვებ-ბრაუზერი
 +Name[ko]=Falkon 웹 브라우저
 +Name[lt]=Falkon Saityno naršyklė
 +Name[nl]=Falkon Webbrowser

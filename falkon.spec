@@ -8,9 +8,9 @@
 
 Summary:	Fast, lightweight web browser based on QtWebEngine
 Name:		falkon
-Version:	22.08.0
+Version:	22.08.1
 %if 0%snapshot
-Release:	1.%{snapshot}.1
+Release:	0.%{snapshot}.1
 Source0:	%{oname}-%{snapshot}.tar.xz
 %else
 Release:	1
