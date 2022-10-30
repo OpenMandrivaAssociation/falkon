@@ -1,6 +1,5 @@
 %define oname falkon
 %define major 2
-%define snapshot %nil
 %global optflags %{optflags} -O3 -Wno-error=return-type-c-linkage -I%(python -c "from distutils.sysconfig import get_python_inc; print (get_python_inc());")
 %bcond_with pyside2
 
@@ -9,14 +8,9 @@
 Summary:	Fast, lightweight web browser based on QtWebEngine
 Name:		falkon
 Version:	22.08.2
-%if 0%snapshot
-Release:	1.%{snapshot}.1
-Source0:	%{oname}-%{snapshot}.tar.xz
-%else
-Release:	1
+Release:	2
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Source0:	https://download.kde.org/%{stable}/release-service/%{version}/src/falkon-%{version}.tar.xz
-%endif
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
 Url:		https://github.com/KDE/falkon
@@ -184,12 +178,7 @@ Plugin for Falkon adding support for:
 #----------------------------------------------------------------------------
 
 %prep
-%if 0%{snapshot}
-%autosetup -p1 -n %{oname}-%{snapshot}
-%else
 %autosetup -p1 -n %{oname}-%{version}
-%endif
-
 dos2unix README.md
 
 %build
