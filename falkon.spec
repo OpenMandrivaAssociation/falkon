@@ -1,7 +1,11 @@
 %define oname falkon
 %define major 2
 %global optflags %{optflags} -O3 -Wno-error=return-type-c-linkage -I%(python -c "from distutils.sysconfig import get_python_inc; print (get_python_inc());")
+%ifarch %{aarch64}
+%bcond_with pyside2
+%else
 %bcond_without pyside2
+%endif
 
 %global __provides_exclude_from ^%{_qt5_plugindir}/falkon/.*$
 
