@@ -11,8 +11,8 @@
 
 Summary:	Fast, lightweight web browser based on QtWebEngine
 Name:		falkon
-Version:	22.12.3
-Release:	2
+Version:	23.03.90
+Release:	1
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Source0:	https://download.kde.org/%{stable}/release-service/%{version}/src/falkon-%{version}.tar.xz
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
