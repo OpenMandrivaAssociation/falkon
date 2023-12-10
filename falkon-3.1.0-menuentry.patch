@@ -1,7 +1,7 @@
-diff -up falkon-22.08.1/linux/applications/org.kde.falkon.desktop.6~ falkon-22.08.1/linux/applications/org.kde.falkon.desktop
---- falkon-22.08.1/linux/applications/org.kde.falkon.desktop.6~	2022-09-09 09:23:59.862257845 +0200
-+++ falkon-22.08.1/linux/applications/org.kde.falkon.desktop	2022-09-09 12:05:48.336756470 +0200
-@@ -1,43 +1,41 @@
+diff -up falkon-24.01.75/linux/applications/org.kde.falkon.desktop.6~ falkon-24.01.75/linux/applications/org.kde.falkon.desktop
+--- falkon-24.01.75/linux/applications/org.kde.falkon.desktop.6~	2023-11-10 18:33:49.868094656 +0100
++++ falkon-24.01.75/linux/applications/org.kde.falkon.desktop	2023-11-10 18:36:47.166056723 +0100
+@@ -1,44 +1,44 @@
  [Desktop Entry]
 -Name=Falkon
 -Name[ar]=فالكون
@@ -14,6 +14,7 @@ diff -up falkon-22.08.1/linux/applications/org.kde.falkon.desktop.6~ falkon-22.0
 -Name[de]=Falkon
 -Name[el]=Falkon
 -Name[en_GB]=Falkon
+-Name[eo]=Falkon
 -Name[es]=Falkon
 -Name[et]=Falkon
 -Name[eu]=Falkon
@@ -44,6 +45,8 @@ diff -up falkon-22.08.1/linux/applications/org.kde.falkon.desktop.6~ falkon-22.0
 -Name[zh_TW]=Falkon
 +Name=Falkon Web Browser
 +Name[ar]=فالكون متصفّح وبّ
++Name[az]=Falkon Veb Bələdçi
++Name[bg]=Falkon Уеб браузър
 +Name[ca]=Navegador web Falkon
 +Name[ca@valencia]=Navegador web Falkon
 +Name[cs]=Falkon Webový prohlížeč
@@ -51,6 +54,7 @@ diff -up falkon-22.08.1/linux/applications/org.kde.falkon.desktop.6~ falkon-22.0
 +Name[de]=Falkon Web-Browser
 +Name[el]=Falkon Περιηγητής ιστού
 +Name[en_GB]=Falkon Web Browser
++Name[eo]=Falkon Retumilo
 +Name[es]=Navegador web Falkon
 +Name[et]=Veebilehitseja Falkon
 +Name[eu]=Falkon Web arakatzailea

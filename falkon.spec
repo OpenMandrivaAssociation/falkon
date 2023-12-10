@@ -1,24 +1,22 @@
-%define oname falkon
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 %define major 2
 %global optflags %{optflags} -O3 -Wno-error=return-type-c-linkage -I%(python -c "from distutils.sysconfig import get_python_inc; print (get_python_inc());")
 %ifarch %{aarch64}
-%bcond_with pyside2
+%bcond_with pyside6
 %else
-%bcond_without pyside2
+%bcond_without pyside6
 %endif
 
-%global __provides_exclude_from ^%{_qt5_plugindir}/falkon/.*$
+%global __provides_exclude_from ^%{_qtdir}/plugins/falkon/.*$
 
 Summary:	Fast, lightweight web browser based on QtWebEngine
 Name:		falkon
-Version:	23.08.4
+Version:	24.01.80
 Release:	1
-%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Source0:	https://download.kde.org/%{stable}/release-service/%{version}/src/falkon-%{version}.tar.xz
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
 Url:		https://github.com/KDE/falkon
-Source100:	falkon.rpmlintrc
 Patch0:		falkon-3.0.1-webinspector.patch
 Patch1:		falkon-3.1.0-not-in-More-menu.patch
 # Running a browser as root may not be the smartest thing to do,
@@ -30,39 +28,43 @@ Patch5:		falkon-3.1.0-menuentry.patch
 Patch9:		falkon-3.1.0-compile.patch
 
 BuildRequires:	cmake(ECM)
-BuildRequires:	qt5-linguist-tools
+BuildRequires:	qt6-qttools-linguist-tools
 BuildRequires:	dos2unix
-BuildRequires:	pkgconfig(gnome-keyring-1)
 BuildRequires:	pkgconfig(openssl)
 BuildRequires:	pkgconfig(xcb-util)
-BuildRequires:	pkgconfig(Qt5Core)
-BuildRequires:	pkgconfig(Qt5WebEngine)
-BuildRequires:	pkgconfig(Qt5WebEngineWidgets)
-BuildRequires:	pkgconfig(Qt5QuickWidgets)
-BuildRequires:	pkgconfig(Qt5Script)
-BuildRequires:	pkgconfig(Qt5Test)
-BuildRequires:	pkgconfig(Qt5X11Extras)
+BuildRequires:	cmake(Qt6)
+BuildRequires:	cmake(Qt6Core)
+BuildRequires:	cmake(Qt6Concurrent)
+BuildRequires:	cmake(Qt6Sql)
+BuildRequires:	cmake(Qt6WebEngineCore)
+BuildRequires:	cmake(Qt6WebEngineWidgets)
+BuildRequires:	cmake(Qt6QuickWidgets)
+BuildRequires:	cmake(Qt6Test)
+BuildRequires:	cmake(Qt6Core5Compat)
 BuildRequires:	pkgconfig(python3)
-BuildRequires:	cmake(KF5Wallet)
-BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF6Wallet)
+BuildRequires:	cmake(KF6I18n)
 # Optional -- having them enables KDE integration
-BuildRequires:	cmake(KF5KIO)
-BuildRequires:	cmake(KF5Crash)
-BuildRequires:	cmake(KF5CoreAddons)
-BuildRequires:	cmake(KF5Purpose)
-%if %{with pyside2}
-BuildRequires:	cmake(PySide2)
-BuildRequires:	cmake(Shiboken2)
+BuildRequires:	cmake(KF6KIO)
+BuildRequires:	cmake(KF6Crash)
+BuildRequires:	cmake(KF6CoreAddons)
+BuildRequires:	cmake(KF6Purpose)
+%if %{with pyside6}
+BuildRequires:	cmake(PySide6)
+BuildRequires:	cmake(Shiboken6)
 %endif
 BuildRequires:	gettext-devel
 Requires:	%{name}-core = %{EVRD}
 Suggests:	%{name}-plugins = %{EVRD}
-Requires:	qt5-qtbase-database-plugin-sqlite
-Requires:	%{_lib}qt5-output-driver-default
+Requires:	qt6-qtbase-sql-sqlite
 Provides:	webclient
 Requires:	distro-release-indexhtml
 Requires:	xdg-utils
 %rename qupzilla
+# We use the P6 version of Falkon even for P5 these days.
+# The qt5 version of QtWebEngine is too far behind to be useful
+# these days. Lots of sites reject it as "browser too old".
+%rename plasma6-falkon
 
 %description
 Falkon is a very fast and lightweight web browser. It aims to be a lightweight
@@ -84,11 +86,12 @@ available to everyone.
 #----------------------------------------------------------------------------
 
 %package core
-Summary:	%{oname} web browser core package
+Summary:	%{name} web browser core package
 Group:		Networking/WWW
 Obsoletes:	%{_lib}QupZilla1
 Obsoletes:	%{_lib}QupZilla2
 %rename qupzilla-core
+%rename plasma6-falkon-core
 # FIXME move this to a devel subpackage if Falkon ever
 # decides to install headers for external plugins
 Obsoletes:	%{_lib}QupZilla-devel
@@ -108,26 +111,27 @@ database with an SSL Manager.
 QupZilla's main aim is to be a very fast and very stable QtWebEngine browser
 available to everyone.
 
-%files core -f %{name}.lang
-%{_bindir}/%{name}
+%files core -f falkon.lang
+%{_bindir}/falkon
 # No need to create a separate libpackage for a "library"
 # that can't be used by anything else...
 %{_libdir}/libFalkonPrivate.so.*
-%dir %{_datadir}/%{name}
-%{_datadir}/%{name}/themes
+%dir %{_datadir}/falkon
+%{_datadir}/falkon/themes
 %{_datadir}/bash-completion/completions/*
 %{_iconsdir}/hicolor/*/apps/*
 %{_datadir}/applications/org.kde.falkon.desktop
 %{_datadir}/metainfo/org.kde.falkon.appdata.xml
-%dir %{_qt5_plugindir}/%{name}
+%dir %{_qtdir}/plugins/falkon
 
 #----------------------------------------------------------------------------
 
 %package plugins
-Summary:	Various plugins for %{oname} web browser
+Summary:	Various plugins for %{name} web browser
 Group:		Networking/WWW
 Requires:	%{name} = %{EVRD}
 %rename qupzilla-plugins
+%rename plasma6-falkon-plugins
 
 %description plugins
 QupZilla Plugins are dynamically loaded shared libraries (*.so) that can extend
@@ -139,35 +143,20 @@ application in almost any way. This package contains the following plugins:
 * GreaseMonkey
 
 %files plugins
-%{_qt5_plugindir}/%{name}/*.so
-%exclude %{_qt5_plugindir}/%{name}/GnomeKeyringPasswords.so
-%exclude %{_qt5_plugindir}/%{name}/KDEFrameworksIntegration.so
-%if %{with pyside2}
-%{_qt5_plugindir}/%{name}/middleclickloader
-%{_qt5_plugindir}/%{name}/runaction
+%{_qtdir}/plugins/falkon/*.so
+%exclude %{_qtdir}/plugins/falkon/KDEFrameworksIntegration.so
+%if %{with pyside6}
+%{_qtdir}/plugins/falkon/middleclickloader
+%{_qtdir}/plugins/falkon/runaction
 %endif
 
 #----------------------------------------------------------------------------
 
-%package gnome-keyring
-Summary:	GNOME Keyring integration plugin for %{name}
-Group:		Networking/WWW
-Requires:	%{name} = %{EVRD}
-Conflicts:	%{name}-plugins < 3.1.0-5
-
-%description gnome-keyring
-GNOME Keyring integration plugin.
-
-%files gnome-keyring
-%{_qt5_plugindir}/%{name}/GnomeKeyringPasswords.so
-
-#----------------------------------------------------------------------------
-
 %package kde
-Summary:	KDE Frameworks Integration plugin for %{name}
+Summary:	KDE Frameworks Integration plugin for falkon
 Group:		Networking/WWW
 Requires:	%{name} = %{EVRD}
-Conflicts:	%{name}-plugins < 3.1.0-5
+%rename plasma6-falkon-kde
 
 %description kde
 Plugin for Falkon adding support for:
@@ -177,24 +166,28 @@ Plugin for Falkon adding support for:
 - intercepting crashes with KCrash, bringing up the DrKonqi crash handler.
 
 %files kde
-%{_qt5_plugindir}/%{name}/KDEFrameworksIntegration.so
+%{_qtdir}/plugins/falkon/KDEFrameworksIntegration.so
 
 #----------------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n %{oname}-%{version}
+%autosetup -p1 -n %{name}-%{version}
 dos2unix README.md
 
 %build
 export PORTABLE_BUILD="false"
 
-%cmake_kde5 -DDISABLE_DBUS:BOOL=FALSE \
-	-DSHIBOKEN_BINARY=%{_bindir}/shiboken2 \
-	-DSHIBOKEN_INCLUDE_DIR=%{_includedir}/shiboken2 \
-	-DSHIBOKEN_PYTHON_INCLUDE_DIR=%{_includedir}/python3.7m \
-	-DSHIBOKEN_LIBRARY=$(ls %{_libdir}/libshiboken2.cpython-3*.so) \
-	-DPYSIDE_LIBRARY=$(ls %{_libdir}/libpyside2.cpython-3*.so) \
-	-DPYSIDE_INCLUDE_DIR=%{_includedir}/PySide2
+%cmake \
+	-DBUILD_WITH_QT6:BOOL=ON \
+	-DDISABLE_DBUS:BOOL=FALSE \
+	-DSHIBOKEN_BINARY=%{_bindir}/shiboken6 \
+	-DSHIBOKEN_INCLUDE_DIR=%{_includedir}/shiboken6 \
+	-DSHIBOKEN_PYTHON_INCLUDE_DIR=%{_includedir}/python3.11 \
+	-DSHIBOKEN_LIBRARY=$(ls %{_libdir}/libshiboken6.cpython-3*.so) \
+	-DPYSIDE_LIBRARY=$(ls %{_libdir}/libpyside6.cpython-3*.so) \
+	-DPYSIDE_INCLUDE_DIR=%{_includedir}/PySide6 \
+	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
+	-G Ninja
 
 %ninja_build
 
@@ -202,8 +195,8 @@ export PORTABLE_BUILD="false"
 %ninja_install -C build
 
 # remove useless plugins
-rm -fv %{buildroot}%{_qt5_plugindir}/%{name}/TestPlugin.so
-rm -rfv %{buildroot}%{_qt5_plugindir}/%{name}/qml/helloqml
+rm -fv %{buildroot}%{_qtdir}/plugins/falkon/TestPlugin.so
+rm -rfv %{buildroot}%{_qtdir}/plugins/falkon/qml/helloqml
 
 # find_lang can't deal with the strange mix of .mo and .qm style
 # translations all put in the same place, so let's do the right thing
@@ -211,5 +204,5 @@ rm -rfv %{buildroot}%{_qt5_plugindir}/%{name}/qml/helloqml
 TOPDIR="$(pwd)"
 cd %{buildroot}
 find .%{_datadir}/locale -type f -name "*.qm" -o -name "*.mo" |while read r; do
-    printf '%%%%lang(%%s) %%s\n' $(echo $r |cut -d/ -f5) $(echo $r |cut -b2-) >>"$TOPDIR"/%{name}.lang
+    printf '%%%%lang(%%s) %%s\n' $(echo $r |cut -d/ -f5) $(echo $r |cut -b2-) >>"$TOPDIR"/falkon.lang
 done

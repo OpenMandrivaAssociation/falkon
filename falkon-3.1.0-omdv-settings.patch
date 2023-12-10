@@ -1,7 +1,7 @@
-diff -Naur falkon-3.1.0/src/lib/app/browserwindow.cpp falkon-3.1.0.tpg/src/lib/app/browserwindow.cpp
---- falkon-3.1.0/src/lib/app/browserwindow.cpp	2019-03-19 18:06:45.000000000 +0000
-+++ falkon-3.1.0.tpg/src/lib/app/browserwindow.cpp	2021-04-17 14:18:46.594812558 +0000
-@@ -575,7 +575,7 @@
+diff -up falkon-24.01.80/src/lib/app/browserwindow.cpp.5~ falkon-24.01.80/src/lib/app/browserwindow.cpp
+--- falkon-24.01.80/src/lib/app/browserwindow.cpp.5~	2023-11-28 03:10:55.000000000 +0100
++++ falkon-24.01.80/src/lib/app/browserwindow.cpp	2023-12-10 23:39:55.836379774 +0100
+@@ -573,7 +573,7 @@ void BrowserWindow::loadSettings()
  
      //Url settings
      settings.beginGroup(QSL("Web-URL-Settings"));
@@ -10,9 +10,9 @@ diff -Naur falkon-3.1.0/src/lib/app/browserwindow.cpp falkon-3.1.0.tpg/src/lib/a
      settings.endGroup();
  
      //Browser Window settings
-diff -Naur falkon-3.1.0/src/lib/data/data/bookmarks.json falkon-3.1.0.tpg/src/lib/data/data/bookmarks.json
---- falkon-3.1.0/src/lib/data/data/bookmarks.json	2019-03-19 18:06:45.000000000 +0000
-+++ falkon-3.1.0.tpg/src/lib/data/data/bookmarks.json	2021-04-17 13:47:45.354681717 +0000
+diff -up falkon-24.01.80/src/lib/data/data/bookmarks.json.5~ falkon-24.01.80/src/lib/data/data/bookmarks.json
+--- falkon-24.01.80/src/lib/data/data/bookmarks.json.5~	2023-11-28 03:10:55.000000000 +0100
++++ falkon-24.01.80/src/lib/data/data/bookmarks.json	2023-12-10 23:39:55.836379774 +0100
 @@ -1,7 +1,51 @@
  {
   "roots": {
@@ -66,31 +66,31 @@ diff -Naur falkon-3.1.0/src/lib/data/data/bookmarks.json falkon-3.1.0.tpg/src/li
     "description": "Bookmarks located in Bookmarks Toolbar",
     "expanded": true,
     "expanded_sidebar": true,
-diff -Naur falkon-3.1.0/src/lib/preferences/preferences.cpp falkon-3.1.0.tpg/src/lib/preferences/preferences.cpp
---- falkon-3.1.0/src/lib/preferences/preferences.cpp	2021-04-17 13:45:47.606076978 +0000
-+++ falkon-3.1.0.tpg/src/lib/preferences/preferences.cpp	2021-04-17 14:17:06.322453717 +0000
-@@ -142,7 +142,7 @@
+diff -up falkon-24.01.80/src/lib/preferences/preferences.cpp.5~ falkon-24.01.80/src/lib/preferences/preferences.cpp
+--- falkon-24.01.80/src/lib/preferences/preferences.cpp.5~	2023-12-10 23:39:55.836379774 +0100
++++ falkon-24.01.80/src/lib/preferences/preferences.cpp	2023-12-10 23:41:50.356659441 +0100
+@@ -135,7 +135,7 @@ Preferences::Preferences(BrowserWindow*
      Settings settings;
      //GENERAL URLs
-     settings.beginGroup("Web-URL-Settings");
--    m_homepage = settings.value("homepage", QUrl(QSL("falkon:start"))).toUrl();
-+    m_homepage = settings.value("homepage", QUrl(QSL("file:///usr/share/mdk/indexhtml/index.html"))).toUrl();
-     m_newTabUrl = settings.value("newTabUrl", QUrl(QSL("falkon:speeddial"))).toUrl();
-     ui->homepage->setText(m_homepage.toEncoded());
-     ui->newTabUrl->setText(m_newTabUrl.toEncoded());
-@@ -989,6 +989,15 @@
-     settings.setValue("Position", m_notification.data() ? m_notification.data()->pos() : m_notifPosition);
+     settings.beginGroup(QSL("Web-URL-Settings"));
+-    m_homepage = settings.value(QSL("homepage"), QUrl(QSL("falkon:start"))).toUrl();
++    m_homepage = settings.value(QSL("homepage"), QUrl(QSL("file:///usr/share/mdk/indexhtml/index.html"))).toUrl();
+     m_newTabUrl = settings.value(QSL("newTabUrl"), QUrl(QSL("falkon:speeddial"))).toUrl();
+     ui->homepage->setText(QString::fromUtf8(m_homepage.toEncoded()));
+     ui->newTabUrl->setText(QString::fromUtf8(m_newTabUrl.toEncoded()));
+@@ -420,6 +420,15 @@ Preferences::Preferences(BrowserWindow*
+     m_notifPosition = settings.value(QSL("Position"), QPoint(10, 10)).toPoint();
      settings.endGroup();
  
 +    //SPEEDDIAL
-+    settings.beginGroup("SpeedDial");
-+    settings.setValue("background", "file:///usr/share/wallpapers/default.png");
-+    settings.setValue("backsize", "cover");
-+    settings.setValue("pages", '"url:\"https://openmandriva.org\"|title:\"OpenMandriva\";url:\"https://forum.openmandriva.org\"|title:\"OpenMandriva Forum\";url:\"https://abf.openmandriva.org\"|title:\"Automatic Build Farm\";"');
-+    settings.setValue("pagesrow", "4");
-+    settings.setValue("sdcenter", "true");
++    settings.beginGroup(QSL("SpeedDial"));
++    settings.setValue(QSL("background"), QSL("file:///usr/share/wallpapers/default.png"));
++    settings.setValue(QSL("backsize"), QSL("cover"));
++    settings.setValue(QSL("pages"), QSL("url:\"https://openmandriva.org\"|title:\"OpenMandriva\";url:\"https://forum.openmandriva.org\"|title:\"OpenMandriva Forum\";url:\"https://abf.openmandriva.org\"|title:\"Automatic Build Farm\";"));
++    settings.setValue(QSL("pagesrow"), QSL("4"));
++    settings.setValue(QSL("sdcenter"), QSL("true"));
 +    settings.endGroup();
 +
      //SPELLCHECK
      settings.beginGroup(QSL("SpellCheck"));
-     settings.setValue("Enabled", ui->spellcheckEnabled->isChecked());
+     ui->spellcheckEnabled->setChecked(settings.value(QSL("Enabled"), false).toBool());
