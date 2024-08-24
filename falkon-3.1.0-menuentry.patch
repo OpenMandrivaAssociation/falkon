@@ -1,7 +1,7 @@
-diff -up falkon-24.05.0/linux/applications/org.kde.falkon.desktop.6~ falkon-24.05.0/linux/applications/org.kde.falkon.desktop
---- falkon-24.05.0/linux/applications/org.kde.falkon.desktop.6~	2024-05-24 19:03:41.928585467 +0200
-+++ falkon-24.05.0/linux/applications/org.kde.falkon.desktop	2024-05-24 19:05:02.113477298 +0200
-@@ -1,46 +1,44 @@
+diff -up falkon-24.08.0/linux/applications/org.kde.falkon.desktop.6~ falkon-24.08.0/linux/applications/org.kde.falkon.desktop
+--- falkon-24.08.0/linux/applications/org.kde.falkon.desktop.6~	2024-08-24 13:53:49.417791131 +0200
++++ falkon-24.08.0/linux/applications/org.kde.falkon.desktop	2024-08-24 14:17:34.039842737 +0200
+@@ -1,48 +1,44 @@
  [Desktop Entry]
 -Name=Falkon
 -Name[ar]=فالكون
@@ -22,6 +22,7 @@ diff -up falkon-24.05.0/linux/applications/org.kde.falkon.desktop.6~ falkon-24.0
 -Name[fi]=Falkon
 -Name[fr]=Falkon
 -Name[gl]=Falkon
+-Name[he]=Falkon
 -Name[hu]=Falkon
 -Name[ia]=Falkon:
 -Name[id]=Falkon
@@ -30,6 +31,7 @@ diff -up falkon-24.05.0/linux/applications/org.kde.falkon.desktop.6~ falkon-24.0
 -Name[ka]=Falkon
 -Name[ko]=Falkon
 -Name[lt]=Falkon
+-Name[lv]=Falkon
 -Name[nl]=Falkon
 -Name[nn]=Falkon
 -Name[pa]=ਫਾਲਕਨ
