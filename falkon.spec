@@ -12,20 +12,11 @@
 Summary:	Fast, lightweight web browser based on QtWebEngine
 Name:		falkon
 Version:	24.12.3
-Release:	4
+Release:	5
 Source0:	https://download.kde.org/%{stable}/release-service/%{version}/src/falkon-%{version}.tar.xz
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
 Url:		https://github.com/KDE/falkon
-Patch0:		falkon-3.0.1-webinspector.patch
-Patch1:		falkon-3.1.0-not-in-More-menu.patch
-# Running a browser as root may not be the smartest thing to do,
-# but calamares does it during installation, so let's make it work...
-Patch2:		falkon-3.1.0-fix-running-as-root.patch
-Patch3:		falkon-3.1.0-native-scrollbars.patch
-Patch4:		falkon-3.1.0-omdv-settings.patch
-Patch5:		falkon-3.1.0-menuentry.patch
-Patch9:		falkon-3.1.0-compile.patch
 
 BuildRequires:	cmake(ECM)
 BuildRequires:	qt6-qttools-linguist-tools
@@ -80,6 +71,19 @@ database with an SSL Manager.
 
 Falkon's main aim is to be a very fast and very stable QtWebEngine browser
 available to everyone.
+
+%patchlist
+falkon-3.0.1-webinspector.patch
+falkon-3.1.0-not-in-More-menu.patch
+# Running a browser as root may not be the smartest thing to do,
+# but calamares does it during installation, so let's make it work...
+falkon-3.1.0-fix-running-as-root.patch
+falkon-3.1.0-native-scrollbars.patch
+falkon-3.1.0-omdv-settings.patch
+falkon-3.1.0-menuentry.patch
+falkon-3.1.0-compile.patch
+# Make it work with PySide 6.9+
+https://invent.kde.org/network/falkon/-/commit/1f8b18ddaa9b2d8f12a9394224ef983d80b555d9.patch
 
 %files
 
