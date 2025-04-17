@@ -11,8 +11,8 @@
 
 Summary:	Fast, lightweight web browser based on QtWebEngine
 Name:		falkon
-Version:	24.12.3
-Release:	5
+Version:	25.04.0
+Release:	1
 Source0:	https://download.kde.org/%{stable}/release-service/%{version}/src/falkon-%{version}.tar.xz
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
 Group:		Networking/WWW
@@ -82,8 +82,6 @@ falkon-3.1.0-native-scrollbars.patch
 falkon-3.1.0-omdv-settings.patch
 falkon-3.1.0-menuentry.patch
 falkon-3.1.0-compile.patch
-# Make it work with PySide 6.9+
-https://invent.kde.org/network/falkon/-/commit/1f8b18ddaa9b2d8f12a9394224ef983d80b555d9.patch
 
 %files
 

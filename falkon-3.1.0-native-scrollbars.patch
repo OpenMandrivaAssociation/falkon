@@ -1,18 +1,18 @@
-diff -up falkon-24.01.80/src/lib/preferences/preferences.cpp.4~ falkon-24.01.80/src/lib/preferences/preferences.cpp
---- falkon-24.01.80/src/lib/preferences/preferences.cpp.4~	2023-12-10 23:38:52.010680108 +0100
-+++ falkon-24.01.80/src/lib/preferences/preferences.cpp	2023-12-10 23:39:30.924105426 +0100
-@@ -287,7 +287,7 @@ Preferences::Preferences(BrowserWindow*
+diff -up falkon-25.04.0/src/lib/preferences/preferences.cpp.4~ falkon-25.04.0/src/lib/preferences/preferences.cpp
+--- falkon-25.04.0/src/lib/preferences/preferences.cpp.4~	2025-04-11 05:09:57.000000000 +0200
++++ falkon-25.04.0/src/lib/preferences/preferences.cpp	2025-04-18 00:48:31.245323199 +0200
+@@ -290,7 +290,7 @@ Preferences::Preferences(BrowserWindow*
+     ui->animateScrolling->setChecked(settings.value(QSL("AnimateScrolling"), true).toBool());
      ui->wheelScroll->setValue(settings.value(QSL("wheelScrollLines"), qApp->wheelScrollLines()).toInt());
-     ui->xssAuditing->setChecked(settings.value(QSL("XSSAuditing"), false).toBool());
      ui->printEBackground->setChecked(settings.value(QSL("PrintElementBackground"), true).toBool());
 -    ui->useNativeScrollbars->setChecked(settings.value(QSL("UseNativeScrollbars"), false).toBool());
 +    ui->useNativeScrollbars->setChecked(settings.value(QSL("UseNativeScrollbars"), true).toBool());
      ui->disableVideoAutoPlay->setChecked(settings.value(QSL("DisableVideoAutoPlay"), false).toBool());
      ui->webRTCPublicIpOnly->setChecked(settings.value(QSL("WebRTCPublicIpOnly"), true).toBool());
      ui->dnsPrefetch->setChecked(settings.value(QSL("DNSPrefetch"), true).toBool());
-diff -up falkon-24.01.80/src/lib/webengine/webscrollbarmanager.cpp.4~ falkon-24.01.80/src/lib/webengine/webscrollbarmanager.cpp
---- falkon-24.01.80/src/lib/webengine/webscrollbarmanager.cpp.4~	2023-11-28 03:10:55.000000000 +0100
-+++ falkon-24.01.80/src/lib/webengine/webscrollbarmanager.cpp	2023-12-10 23:38:52.010680108 +0100
+diff -up falkon-25.04.0/src/lib/webengine/webscrollbarmanager.cpp.4~ falkon-25.04.0/src/lib/webengine/webscrollbarmanager.cpp
+--- falkon-25.04.0/src/lib/webengine/webscrollbarmanager.cpp.4~	2025-04-11 05:09:57.000000000 +0200
++++ falkon-25.04.0/src/lib/webengine/webscrollbarmanager.cpp	2025-04-18 00:09:11.063431200 +0200
 @@ -108,7 +108,7 @@ WebScrollBarManager::WebScrollBarManager
  
  void WebScrollBarManager::loadSettings()
