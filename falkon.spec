@@ -1,11 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 %define major 2
 %global optflags %{optflags} -O3 -Wno-error=return-type-c-linkage -I%(python -c "from distutils.sysconfig import get_python_inc; print (get_python_inc());")
-%ifarch %{aarch64}
 %bcond_with pyside6
-%else
-%bcond_without pyside6
-%endif
 
 %global __provides_exclude_from ^%{_qtdir}/plugins/falkon/.*$
 
