@@ -1,13 +1,13 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 %define major 2
 %global optflags %{optflags} -O3 -Wno-error=return-type-c-linkage -I%(python -c "from distutils.sysconfig import get_python_inc; print (get_python_inc());")
-%bcond_with pyside6
+%bcond_without pyside6
 
 %global __provides_exclude_from ^%{_qtdir}/plugins/falkon/.*$
 
 Summary:	Fast, lightweight web browser based on QtWebEngine
 Name:		falkon
-Version:	25.08.0
+Version:	25.08.1
 Release:	1
 Source0:	https://download.kde.org/%{stable}/release-service/%{version}/src/falkon-%{version}.tar.xz
 License:	GPLv3+ and BSD and LGPLv2.1 and GPLv2+ and MPL
@@ -78,6 +78,7 @@ falkon-3.1.0-native-scrollbars.patch
 falkon-3.1.0-omdv-settings.patch
 falkon-3.1.0-menuentry.patch
 falkon-3.1.0-compile.patch
+falkon-25.08.1-find-pyside.patch
 
 %files
 

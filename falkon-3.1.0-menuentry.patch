@@ -1,7 +1,7 @@
-diff -up falkon-25.04.0/linux/applications/org.kde.falkon.desktop.6~ falkon-25.04.0/linux/applications/org.kde.falkon.desktop
---- falkon-25.04.0/linux/applications/org.kde.falkon.desktop.6~	2025-04-18 00:48:56.331510264 +0200
-+++ falkon-25.04.0/linux/applications/org.kde.falkon.desktop	2025-04-18 00:49:36.180057548 +0200
-@@ -1,50 +1,44 @@
+diff -up falkon-25.08.1/linux/applications/org.kde.falkon.desktop.6~ falkon-25.08.1/linux/applications/org.kde.falkon.desktop
+--- falkon-25.08.1/linux/applications/org.kde.falkon.desktop.6~	2025-09-13 02:13:22.311985927 +0200
++++ falkon-25.08.1/linux/applications/org.kde.falkon.desktop	2025-09-13 15:40:56.134522829 +0200
+@@ -1,49 +1,44 @@
  [Desktop Entry]
 -Name=Falkon
 -Name[ar]=فالكون
@@ -46,7 +46,6 @@ diff -up falkon-25.04.0/linux/applications/org.kde.falkon.desktop.6~ falkon-25.0
 -Name[sv]=Falkon
 -Name[tr]=Falkon
 -Name[uk]=Falkon
--Name[x-test]=xxFalkonxx
 -Name[zh_CN]=Falkon 浏览器
 -Name[zh_TW]=Falkon
 +Name=Falkon Web Browser

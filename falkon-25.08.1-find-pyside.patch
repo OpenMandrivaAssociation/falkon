@@ -1,0 +1,21 @@
+diff -up falkon-25.08.1/src/plugins/PyFalkon/CMakeLists.txt.omv~ falkon-25.08.1/src/plugins/PyFalkon/CMakeLists.txt
+--- falkon-25.08.1/src/plugins/PyFalkon/CMakeLists.txt.omv~	2025-09-14 18:30:42.403120234 +0200
++++ falkon-25.08.1/src/plugins/PyFalkon/CMakeLists.txt	2025-09-14 18:30:46.790531951 +0200
+@@ -3,6 +3,17 @@ if(POLICY CMP0071)
+   cmake_policy(SET CMP0071 NEW)
+ endif()
+ 
++include_directories(/usr/include/PySide6)
++include_directories(/usr/include/PySide6/QtCore)
++include_directories(/usr/include/PySide6/QtGui)
++include_directories(/usr/include/PySide6/QtNetwork)
++include_directories(/usr/include/PySide6/QtWebChannel)
++include_directories(/usr/include/PySide6/QtWebEngineCore)
++include_directories(/usr/include/PySide6/QtWebEngineWidgets)
++include_directories(/usr/include/PySide6/QtWidgets)
++include_directories(/usr/include/PySide6/QtSql)
++include_directories(/usr/include/PySide6/QtPrintSupport)
++
+ # Get all relevant Qt include dirs, to pass them on to shiboken.
+ get_property(QT_CORE_INCLUDE_DIRS TARGET Qt6::Core PROPERTY INTERFACE_INCLUDE_DIRECTORIES)
+ get_property(QT_GUI_INCLUDE_DIRS TARGET Qt6::Gui PROPERTY INTERFACE_INCLUDE_DIRECTORIES)
