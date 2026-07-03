@@ -1,7 +1,7 @@
-diff -up falkon-25.08.1/linux/applications/org.kde.falkon.desktop.6~ falkon-25.08.1/linux/applications/org.kde.falkon.desktop
---- falkon-25.08.1/linux/applications/org.kde.falkon.desktop.6~	2025-09-13 02:13:22.311985927 +0200
-+++ falkon-25.08.1/linux/applications/org.kde.falkon.desktop	2025-09-13 15:40:56.134522829 +0200
-@@ -1,49 +1,44 @@
+diff -up falkon-26.04.3/linux/applications/org.kde.falkon.desktop.6~ falkon-26.04.3/linux/applications/org.kde.falkon.desktop
+--- falkon-26.04.3/linux/applications/org.kde.falkon.desktop.6~	2026-07-02 23:24:53.278094453 +0200
++++ falkon-26.04.3/linux/applications/org.kde.falkon.desktop	2026-07-03 04:03:22.547253789 +0200
+@@ -1,50 +1,44 @@
  [Desktop Entry]
 -Name=Falkon
 -Name[ar]=فالكون
@@ -31,6 +31,7 @@ diff -up falkon-25.08.1/linux/applications/org.kde.falkon.desktop.6~ falkon-25.0
 -Name[it]=Falkon
 -Name[ka]=Falkon
 -Name[ko]=Falkon
+-Name[lg]=Falkon
 -Name[lt]=Falkon
 -Name[lv]=Falkon
 -Name[nl]=Falkon
@@ -50,6 +51,7 @@ diff -up falkon-25.08.1/linux/applications/org.kde.falkon.desktop.6~ falkon-25.0
 -Name[zh_TW]=Falkon
 +Name=Falkon Web Browser
 +Name[ar]=فالكون متصفّح وبّ
++Name[ast]=Falkon Web Browser
 +Name[az]=Falkon Veb Bələdçi
 +Name[bg]=Falkon Уеб браузър
 +Name[ca]=Navegador web Falkon
@@ -66,13 +68,12 @@ diff -up falkon-25.08.1/linux/applications/org.kde.falkon.desktop.6~ falkon-25.0
 +Name[fi]=Verkkoselain Falkon
 +Name[fr]=Navigateur Web Falkon
 +Name[gl]=Navegador web Falkon
-+Name[ia]=Falkon: Navigator Web
-+Name[id]=Falkon Penelusur Web
-+Name[is]=Falkon Vafri
-+Name[it]=Falkon Web browser
-+Name[ka]=Falkon ვებ-ბრაუზერი
-+Name[ko]=Falkon 웹 브라우저
++Name[he]=Falkon דפדפן אינטרנט מהיר ומאובטח
++Name[hi]=फाल्कन एक तेज़ और सुरक्षित वेब ब्राउज़र
++Name[hu]=Falkon gyors és biztonságos webböngésző
++Name[lg]=Falkon bulawuza eyanguya era nga mmizi
 +Name[lt]=Falkon Saityno naršyklė
++Name[lv]=Falkon Ātra un droša tīmekļa pārlūkprogramma
 +Name[nl]=Falkon Webbrowser
 +Name[nn]=Falkon Nettlesar
 +Name[pa]=ਫਾਲਕਨ ਵੈੱਬ ਬਰਾਊਜ਼ਰ
@@ -80,12 +81,12 @@ diff -up falkon-25.08.1/linux/applications/org.kde.falkon.desktop.6~ falkon-25.0
 +Name[pt]=Navegador Web Falkon
 +Name[pt_BR]=Navegador Web Falkon
 +Name[ru]=Falkon интернет-браузер
++Name[sa]=द्रुतगतिः सुरक्षितः च जालपुटःबाजः
 +Name[sk]=Webový prehliadač Falkon
 +Name[sl]=Falkon Spletni brskalnik
 +Name[sv]=Falkon Webbläsare
 +Name[tr]=Falkon Web Tarayıcı
 +Name[uk]=Falkon Переглядач інтернету
-+Name[x-test]=xxFalkon Web Browserxx
 +Name[zh_CN]=Falkon 网页浏览器
 +Name[zh_TW]=Falkon 網路瀏覽器
  Type=Application
