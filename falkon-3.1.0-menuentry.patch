@@ -1,7 +1,6 @@
-diff -up falkon-26.04.3/linux/applications/org.kde.falkon.desktop.6~ falkon-26.04.3/linux/applications/org.kde.falkon.desktop
---- falkon-26.04.3/linux/applications/org.kde.falkon.desktop.6~	2026-07-02 23:24:53.278094453 +0200
-+++ falkon-26.04.3/linux/applications/org.kde.falkon.desktop	2026-07-03 04:03:22.547253789 +0200
-@@ -1,50 +1,44 @@
+--- falkon-26.08.0/linux/applications/org.kde.falkon.desktop	2026-08-21 06:26:30.076246853 +0200
++++ falkon-26.08.0/linux/applications/org.kde.falkon.desktop	2026-08-21 06:26:30.109913649 +0200
+@@ -1,51 +1,51 @@
  [Desktop Entry]
 -Name=Falkon
 -Name[ar]=فالكون
@@ -25,30 +24,6 @@ diff -up falkon-26.04.3/linux/applications/org.kde.falkon.desktop.6~ falkon-26.0
 -Name[he]=Falkon
 -Name[hi]=फाल्कन
 -Name[hu]=Falkon
--Name[ia]=Falkon:
--Name[id]=Falkon
--Name[is]=Falkon
--Name[it]=Falkon
--Name[ka]=Falkon
--Name[ko]=Falkon
--Name[lg]=Falkon
--Name[lt]=Falkon
--Name[lv]=Falkon
--Name[nl]=Falkon
--Name[nn]=Falkon
--Name[pa]=ਫਾਲਕਨ
--Name[pl]=Falkon
--Name[pt]=Falkon
--Name[pt_BR]=Falkon
--Name[ru]=Falkon
--Name[sa]=बाजः
--Name[sk]=Falkon
--Name[sl]=Falkon
--Name[sv]=Falkon
--Name[tr]=Falkon
--Name[uk]=Falkon
--Name[zh_CN]=Falkon 浏览器
--Name[zh_TW]=Falkon
 +Name=Falkon Web Browser
 +Name[ar]=فالكون متصفّح وبّ
 +Name[ast]=Falkon Web Browser
@@ -71,6 +46,27 @@ diff -up falkon-26.04.3/linux/applications/org.kde.falkon.desktop.6~ falkon-26.0
 +Name[he]=Falkon דפדפן אינטרנט מהיר ומאובטח
 +Name[hi]=फाल्कन एक तेज़ और सुरक्षित वेब ब्राउज़र
 +Name[hu]=Falkon gyors és biztonságos webböngésző
+ Name[ia]=Falkon:
+ Name[id]=Falkon
+ Name[is]=Falkon
+ Name[it]=Falkon
+ Name[ka]=Falkon
+ Name[ko]=Falkon
+-Name[lg]=Falkon
+-Name[lt]=Falkon
+-Name[lv]=Falkon
+-Name[nl]=Falkon
+-Name[nn]=Falkon
+-Name[pa]=ਫਾਲਕਨ
+-Name[pl]=Falkon
+-Name[pt]=Falkon
+-Name[pt_BR]=Falkon
+-Name[ru]=Falkon
+-Name[sa]=बाजः
+-Name[sk]=Falkon
+-Name[sl]=Falkon
+-Name[sv]=Falkon
+-Name[tr]=Falkon
 +Name[lg]=Falkon bulawuza eyanguya era nga mmizi
 +Name[lt]=Falkon Saityno naršyklė
 +Name[lv]=Falkon Ātra un droša tīmekļa pārlūkprogramma
@@ -86,6 +82,10 @@ diff -up falkon-26.04.3/linux/applications/org.kde.falkon.desktop.6~ falkon-26.0
 +Name[sl]=Falkon Spletni brskalnik
 +Name[sv]=Falkon Webbläsare
 +Name[tr]=Falkon Web Tarayıcı
+ Name[ug]=Falkon توركۆرگۈ
+-Name[uk]=Falkon
+-Name[zh_CN]=Falkon 浏览器
+-Name[zh_TW]=Falkon
 +Name[uk]=Falkon Переглядач інтернету
 +Name[zh_CN]=Falkon 网页浏览器
 +Name[zh_TW]=Falkon 網路瀏覽器
