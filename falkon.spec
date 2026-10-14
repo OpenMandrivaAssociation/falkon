@@ -1,6 +1,6 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 %define major 2
-%global optflags %{optflags} -O3 -Wno-error=return-type-c-linkage -I%(python -c "from distutils.sysconfig import get_python_inc; print (get_python_inc());")
+%global optflags %{optflags} -O3 -Wno-error=return-type-c-linkage -I%(python -c "import sysconfig; print(sysconfig.get_path('include'))")
 %bcond_without pyside6
 
 %global __provides_exclude_from ^%{_qtdir}/plugins/falkon/.*$
@@ -181,7 +181,7 @@ export PORTABLE_BUILD="false"
 	-DDISABLE_DBUS:BOOL=FALSE \
 	-DSHIBOKEN_BINARY=%{_bindir}/shiboken6 \
 	-DSHIBOKEN_INCLUDE_DIR=%{_includedir}/shiboken6 \
-	-DSHIBOKEN_PYTHON_INCLUDE_DIR=%{_includedir}/python3.11 \
+	-DSHIBOKEN_PYTHON_INCLUDE_DIR=%{py_incdir} \
 	-DSHIBOKEN_LIBRARY=$(ls %{_libdir}/libshiboken6.cpython-3*.so) \
 	-DPYSIDE_LIBRARY=$(ls %{_libdir}/libpyside6.cpython-3*.so) \
 	-DPYSIDE_INCLUDE_DIR=%{_includedir}/PySide6 \
